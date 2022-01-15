@@ -1,0 +1,13 @@
+arguments=
+auto.sync=false
+build.scans.enabled=false
+connection.gradle.distribution=GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(/home/neolight1010/.sdkman/candidates/gradle/current))
+connection.project.dir=
+eclipse.preferences.version=1
+gradle.user.home=
+java.home=/home/neolight1010/src/jdk-11.0.12+7
+jvm.arguments=
+offline.mode=false
+override.workspace.settings=true
+show.console.view=true
+show.executions.view=true
