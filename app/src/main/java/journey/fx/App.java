@@ -15,53 +15,19 @@ import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
+import journey.fx.scenes.LoginMenu;
 
 public class App extends Application {
-    private VBox textInputControlWithLabel(TextInputControl inputControl, String controlPromptText, String labelText, double width) {
-        inputControl.setPromptText(controlPromptText);
-
-        VBox vBox = new VBox(5, new Label(labelText), inputControl);
-        vBox.setAlignment(Pos.CENTER_LEFT);
-
-        vBox.setMaxWidth(width);
-
-        return vBox;
-    }
 
     @Override
     public void start(Stage stage) {
-        StackPane root = new StackPane();
-        root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
-
-        Scene scene = new Scene(root, 640, 480); // new Scene(640, 480);
-        stage.setResizable(false);
-
-        // Components
-        Label title = new Label("Journey");
-        title.setFont(Font.font(42));
-
-        double fieldWidth = root.getWidth() / 2;
-
-        VBox usernameFieldBox = textInputControlWithLabel(new TextField(), "Ingrese su nombre de usuario", "Nombre de usuario", fieldWidth);
-
-        VBox passwordFieldBox = textInputControlWithLabel(new PasswordField(), "Ingrese su contraseña", "Contraseña", fieldWidth);
-
-        Button submitButton = new Button("Iniciar sesión");
-
-        Label registerPrompt = new Label("¿No tienes cuenta? ¡Regístrate!");
-
-        // Main VBox
-        VBox vBox = new VBox(20, title, usernameFieldBox, passwordFieldBox, submitButton, registerPrompt);
-        vBox.setAlignment(Pos.CENTER);
-
-        // Scene setup
-        root.getChildren().addAll(vBox);
+        Scene loginMenu = LoginMenu.create(stage);
 
         // Style
         JMetro jMetro = new JMetro(Style.DARK);
-        jMetro.setScene(scene);
+        jMetro.setScene(loginMenu);
 
-        stage.setScene(scene);
+        stage.setScene(loginMenu);
         stage.show();
     }
 
