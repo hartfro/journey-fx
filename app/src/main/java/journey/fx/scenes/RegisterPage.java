@@ -42,6 +42,7 @@ public class RegisterPage {
         VBox lastNameFieldBox = ControlWithLabel.create(_lastNameField, "Apellido", fieldWidth);
 
         // Birth date field
+        // FIXME: fix width
         DatePicker _birthDatePicker = new DatePicker();
         VBox birthDatePickerBox = ControlWithLabel.create(_birthDatePicker, "Fecha de nacimiento", fieldWidth);
 

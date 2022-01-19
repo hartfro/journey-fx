@@ -10,7 +10,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
+import jfxtras.styles.jmetro.Style;
 import journey.fx.components.ControlWithLabel;
 
 public class LoginMenu {
@@ -41,16 +43,20 @@ public class LoginMenu {
                 "Contraseña", fieldWidth);
 
         Button submitButton = new Button("Iniciar sesión");
-        submitButton.setOnAction((e) -> {
-            VBox r = new VBox();
 
-            stage.setScene(new Scene(r, 200, 200));
+        Button registerButton = new Button("Registrarse");
+        registerButton.setOnAction((e) -> {
+            // FIXME: Don't re-create jMetro instance
+            var registerPage = RegisterPage.create(stage);
+            JMetro jMetro = new JMetro(Style.DARK);
+
+            jMetro.setScene(registerPage);
+
+            stage.setScene(registerPage);
         });
 
-        Label registerPrompt = new Label("¿No tienes cuenta? ¡Regístrate!");
-
         // Main VBox
-        VBox vBox = new VBox(20, title, usernameFieldBox, passwordFieldBox, submitButton, registerPrompt);
+        VBox vBox = new VBox(20, title, usernameFieldBox, passwordFieldBox, submitButton, registerButton);
         vBox.setAlignment(Pos.CENTER);
 
         // Scene setup

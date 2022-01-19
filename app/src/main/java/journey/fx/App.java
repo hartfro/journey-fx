@@ -27,9 +27,9 @@ public class App extends Application {
 
         // Style
         JMetro jMetro = new JMetro(Style.DARK);
-        jMetro.setScene(registerPage);
+        jMetro.setScene(loginMenu);
 
-        stage.setScene(registerPage);
+        stage.setScene(loginMenu);
         stage.show();
     }
 
