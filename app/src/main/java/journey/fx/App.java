@@ -16,18 +16,20 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.fx.scenes.LoginMenu;
+import journey.fx.scenes.RegisterPage;
 
 public class App extends Application {
 
     @Override
     public void start(Stage stage) {
         Scene loginMenu = LoginMenu.create(stage);
+        Scene registerPage = RegisterPage.create(stage);
 
         // Style
         JMetro jMetro = new JMetro(Style.DARK);
-        jMetro.setScene(loginMenu);
+        jMetro.setScene(registerPage);
 
-        stage.setScene(loginMenu);
+        stage.setScene(registerPage);
         stage.show();
     }
 
