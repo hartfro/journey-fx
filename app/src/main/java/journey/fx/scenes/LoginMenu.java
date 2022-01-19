@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetroStyleClass;
-import journey.fx.components.TextInputControlWithLabel;
+import journey.fx.components.ControlWithLabel;
 
 public class LoginMenu {
     public static Scene create(Stage stage) {
@@ -27,9 +27,18 @@ public class LoginMenu {
 
 		double fieldWidth = root.getWidth() / 2;
 
-        VBox usernameFieldBox = TextInputControlWithLabel.create(new TextField(), "Ingrese su nombre de usuario", "Nombre de usuario", fieldWidth);
+        // Username field
+        TextField _usernameField = new TextField();
+        _usernameField.setPromptText("Ingrese su nombre de usuario");
 
-        VBox passwordFieldBox = TextInputControlWithLabel.create(new PasswordField(), "Ingrese su contraseña", "Contraseña", fieldWidth);
+        VBox usernameFieldBox = ControlWithLabel.create(_usernameField, "Nombre de usuario", fieldWidth);
+
+        // Password field
+        TextField _passwordField = new PasswordField();
+        _passwordField.setPromptText("Ingrese su contraseña");
+
+        VBox passwordFieldBox = ControlWithLabel.create(_passwordField,
+                "Contraseña", fieldWidth);
 
         Button submitButton = new Button("Iniciar sesión");
         submitButton.setOnAction((e) -> {

@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetroStyleClass;
-import journey.fx.components.TextInputControlWithLabel;
+import journey.fx.components.ControlWithLabel;
 
 public class RegisterPage {
     private static Node registerForm(Stage stage) {
@@ -23,33 +23,62 @@ public class RegisterPage {
 
         double fieldWidth = 320;
 
-        VBox usernameFieldBox = TextInputControlWithLabel.create(new TextField(), "Ingrese su nombre de usuario",
-                "Nombre de usuario", fieldWidth);
+        // Username field
+        TextField _usernameField = new TextField();
+        _usernameField.setPromptText("Ingrese su nombre de usuario");
 
-        VBox firstNameFieldBox = TextInputControlWithLabel.create(new TextField(), "Ingrese su primer nombre",
-                "Primer nombre", fieldWidth);
+        VBox usernameFieldBox = ControlWithLabel.create(_usernameField, "Nombre de usuario", fieldWidth);
 
-        VBox lastNameFieldBox = TextInputControlWithLabel.create(new TextField(), "Ingrese su apellido", "Apellido",
-                fieldWidth);
+        // First name field
+        TextField _firstNameField = new TextField();
+        _firstNameField.setPromptText("Ingrese su primer nombre");
+
+        VBox firstNameFieldBox = ControlWithLabel.create(_firstNameField, "Primer nombre", fieldWidth);
+
+        // Last name field
+        TextField _lastNameField = new TextField();
+        _lastNameField.setPromptText("Ingrese su apellido");
+
+        VBox lastNameFieldBox = ControlWithLabel.create(_lastNameField, "Apellido", fieldWidth);
 
         DatePicker birthDatePicker = new DatePicker();
 
         ComboBox<String> sexComboBox = new ComboBox<>();
         sexComboBox.getItems().addAll("hola", "hello");
 
-        VBox numeroContactoFieldBox = TextInputControlWithLabel.create(new TextField(), "Ingrese su número de contacto",
+        // Número contacto name field
+        TextField _numeroContactoField = new TextField();
+        _numeroContactoField.setPromptText("Ingrese su número de contacto");
+
+        VBox numeroContactoFieldBox = ControlWithLabel.create(_numeroContactoField,
                 "Número de contacto", fieldWidth);
 
-        VBox ocupacionFieldBox = TextInputControlWithLabel.create(new TextField(), "Ingrese su ocupación", "Ocupación",
+        // Ocupación field
+        TextField _ocupacionField = new TextField();
+        _ocupacionField.setPromptText("Ingrese su ocupación");
+
+        VBox ocupacionFieldBox = ControlWithLabel.create(_ocupacionField, "Ocupación",
                 fieldWidth);
 
-        VBox weightFieldBox = TextInputControlWithLabel.create(new TextField(), "Ingrese su peso en kg", "Peso",
+        // Weight field
+        TextField _weightField = new TextField();
+        _weightField.setPromptText("Ingrese su peso");
+
+        VBox weightFieldBox = ControlWithLabel.create(_weightField, "Peso",
                 fieldWidth);
 
-        VBox heightFieldBox = TextInputControlWithLabel.create(new TextField(), "Ingrese su altura en cm", "Altura",
+        // Height field
+        TextField _heightField = new TextField();
+        _heightField.setPromptText("Ingrese su altura");
+
+        VBox heightFieldBox = ControlWithLabel.create(_heightField, "Altura",
                 fieldWidth);
 
-        VBox passwordFieldBox = TextInputControlWithLabel.create(new PasswordField(), "Ingrese su contraseña",
+        // Password field
+        TextField _passwordField = new PasswordField();
+        _passwordField.setPromptText("Ingrese su contraseña");
+
+        VBox passwordFieldBox = ControlWithLabel.create(_passwordField,
                 "Contraseña", fieldWidth);
 
         Button submitButton = new Button("Iniciar sesión");
