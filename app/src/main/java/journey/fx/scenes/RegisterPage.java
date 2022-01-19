@@ -41,10 +41,15 @@ public class RegisterPage {
 
         VBox lastNameFieldBox = ControlWithLabel.create(_lastNameField, "Apellido", fieldWidth);
 
-        DatePicker birthDatePicker = new DatePicker();
+        // Birth date field
+        DatePicker _birthDatePicker = new DatePicker();
+        VBox birthDatePickerBox = ControlWithLabel.create(_birthDatePicker, "Fecha de nacimiento", fieldWidth);
 
-        ComboBox<String> sexComboBox = new ComboBox<>();
-        sexComboBox.getItems().addAll("hola", "hello");
+        // Sex field
+        ComboBox<String> _sexComboBox = new ComboBox<>();
+        _sexComboBox.getItems().addAll("hola", "hello");
+
+        VBox sexComboBox = ControlWithLabel.create(_sexComboBox, "Sexo", fieldWidth);
 
         // Número contacto name field
         TextField _numeroContactoField = new TextField();
@@ -90,7 +95,7 @@ public class RegisterPage {
 
         Label registerPrompt = new Label("¿No tienes cuenta? ¡Regístrate!");
 
-        formVBox.getChildren().addAll(usernameFieldBox, firstNameFieldBox, lastNameFieldBox, birthDatePicker,
+        formVBox.getChildren().addAll(usernameFieldBox, firstNameFieldBox, lastNameFieldBox, birthDatePickerBox,
                 sexComboBox, numeroContactoFieldBox, ocupacionFieldBox, weightFieldBox, heightFieldBox,
                 passwordFieldBox, submitButton, registerPrompt);
 
