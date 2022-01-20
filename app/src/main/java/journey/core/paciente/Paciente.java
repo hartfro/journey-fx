@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import journey.dia.InfoDia;
+import journey.core.dia.InfoDia;
 
 public class Paciente {
     /**Corresponde al número mínimo de InfoDias para calcular el diagnóstico de ejercicio, como el factor de actividad.*/
