@@ -18,115 +18,97 @@ import jfxtras.styles.jmetro.JMetroStyleClass;
 import journey.fx.components.ControlWithLabel;
 
 public class RegisterPage {
-    private static Node registerForm(Stage stage) {
-        VBox formVBox = new VBox(20);
+        private static Node registerForm(Stage stage) {
+                VBox formVBox = new VBox(20);
 
-        double fieldWidth = 320;
+                double fieldWidth = 320;
 
-        // Username field
-        TextField _usernameField = new TextField();
-        _usernameField.setPromptText("Ingrese su nombre de usuario");
+                // Username field
+                TextField _usernameField = new TextField();
+                _usernameField.setPromptText("Ingrese su nombre de usuario");
 
-        VBox usernameFieldBox = ControlWithLabel.create(_usernameField, "Nombre de usuario", fieldWidth);
+                VBox usernameFieldBox = ControlWithLabel.create(_usernameField, "Nombre de usuario", fieldWidth);
 
-        // First name field
-        TextField _firstNameField = new TextField();
-        _firstNameField.setPromptText("Ingrese su primer nombre");
+                // First name field
+                TextField _firstNameField = new TextField();
+                _firstNameField.setPromptText("Ingrese su primer nombre");
 
-        VBox firstNameFieldBox = ControlWithLabel.create(_firstNameField, "Primer nombre", fieldWidth);
+                VBox firstNameFieldBox = ControlWithLabel.create(_firstNameField, "Primer nombre", fieldWidth);
 
-        // Last name field
-        TextField _lastNameField = new TextField();
-        _lastNameField.setPromptText("Ingrese su apellido");
+                // Last name field
+                TextField _lastNameField = new TextField();
+                _lastNameField.setPromptText("Ingrese su apellido");
 
-        VBox lastNameFieldBox = ControlWithLabel.create(_lastNameField, "Apellido", fieldWidth);
+                VBox lastNameFieldBox = ControlWithLabel.create(_lastNameField, "Apellido", fieldWidth);
 
-        // Birth date field
-        // FIXME: fix width
-        DatePicker _birthDatePicker = new DatePicker();
-        VBox birthDatePickerBox = ControlWithLabel.create(_birthDatePicker, "Fecha de nacimiento", fieldWidth);
+                // Birth date field
+                // FIXME: fix width
+                DatePicker _birthDatePicker = new DatePicker();
+                VBox birthDatePickerBox = ControlWithLabel.create(_birthDatePicker, "Fecha de nacimiento", fieldWidth);
 
-        // Sex field
-        ComboBox<String> _sexComboBox = new ComboBox<>();
-        _sexComboBox.getItems().addAll("hola", "hello");
+                // Sex field
+                ComboBox<String> _sexComboBox = new ComboBox<>();
+                _sexComboBox.getItems().addAll("hola", "hello");
 
-        VBox sexComboBox = ControlWithLabel.create(_sexComboBox, "Sexo", fieldWidth);
+                VBox sexComboBox = ControlWithLabel.create(_sexComboBox, "Sexo", fieldWidth);
 
-        // Número contacto name field
-        TextField _numeroContactoField = new TextField();
-        _numeroContactoField.setPromptText("Ingrese su número de contacto");
+                // Número contacto name field
+                TextField _numeroContactoField = new TextField();
+                _numeroContactoField.setPromptText("Ingrese su número de contacto");
 
-        VBox numeroContactoFieldBox = ControlWithLabel.create(_numeroContactoField,
-                "Número de contacto", fieldWidth);
+                VBox numeroContactoFieldBox = ControlWithLabel.create(_numeroContactoField, "Número de contacto",
+                                fieldWidth);
 
-        // Ocupación field
-        TextField _ocupacionField = new TextField();
-        _ocupacionField.setPromptText("Ingrese su ocupación");
+                // Ocupación field
+                TextField _ocupacionField = new TextField();
+                _ocupacionField.setPromptText("Ingrese su ocupación");
 
-        VBox ocupacionFieldBox = ControlWithLabel.create(_ocupacionField, "Ocupación",
-                fieldWidth);
+                VBox ocupacionFieldBox = ControlWithLabel.create(_ocupacionField, "Ocupación", fieldWidth);
 
-        // Weight field
-        TextField _weightField = new TextField();
-        _weightField.setPromptText("Ingrese su peso");
+                // Password field
+                TextField _passwordField = new PasswordField();
+                _passwordField.setPromptText("Ingrese su contraseña");
 
-        VBox weightFieldBox = ControlWithLabel.create(_weightField, "Peso",
-                fieldWidth);
+                VBox passwordFieldBox = ControlWithLabel.create(_passwordField, "Contraseña", fieldWidth);
 
-        // Height field
-        TextField _heightField = new TextField();
-        _heightField.setPromptText("Ingrese su altura");
+                Button submitButton = new Button("Registrarse");
+                submitButton.setOnAction((e) -> {
+                        VBox r = new VBox();
 
-        VBox heightFieldBox = ControlWithLabel.create(_heightField, "Altura",
-                fieldWidth);
+                        stage.setScene(new Scene(r, 200, 200));
+                });
 
-        // Password field
-        TextField _passwordField = new PasswordField();
-        _passwordField.setPromptText("Ingrese su contraseña");
+                formVBox.getChildren().addAll(usernameFieldBox, firstNameFieldBox, lastNameFieldBox, birthDatePickerBox,
+                                sexComboBox, numeroContactoFieldBox, ocupacionFieldBox, passwordFieldBox, submitButton
+                                );
 
-        VBox passwordFieldBox = ControlWithLabel.create(_passwordField,
-                "Contraseña", fieldWidth);
+                formVBox.setAlignment(Pos.CENTER);
+                return formVBox;
+        }
 
-        Button submitButton = new Button("Iniciar sesión");
-        submitButton.setOnAction((e) -> {
-            VBox r = new VBox();
+        public static Scene create(Stage stage) {
+                StackPane root = new StackPane();
+                root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 
-            stage.setScene(new Scene(r, 200, 200));
-        });
+                Scene scene = new Scene(root, 640, 480); // new Scene(640, 480);
+                stage.setResizable(false);
 
-        Label registerPrompt = new Label("¿No tienes cuenta? ¡Regístrate!");
+                // Components
+                Label title = new Label("Registro");
+                title.setFont(Font.font(42));
 
-        formVBox.getChildren().addAll(usernameFieldBox, firstNameFieldBox, lastNameFieldBox, birthDatePickerBox,
-                sexComboBox, numeroContactoFieldBox, ocupacionFieldBox, weightFieldBox, heightFieldBox,
-                passwordFieldBox, submitButton, registerPrompt);
+                var form = registerForm(stage);
 
-        formVBox.setAlignment(Pos.CENTER);
-        return formVBox;
-    }
+                // Main VBox
+                VBox vBox = new VBox(20, title, form);
+                vBox.setAlignment(Pos.CENTER);
 
-    public static Scene create(Stage stage) {
-        StackPane root = new StackPane();
-        root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
+                ScrollPane scrollPane = new ScrollPane(vBox);
+                scrollPane.setFitToWidth(true);
 
-        Scene scene = new Scene(root, 640, 480); // new Scene(640, 480);
-        stage.setResizable(false);
+                // Scene setup
+                root.getChildren().addAll(scrollPane);
 
-        // Components
-        Label title = new Label("Registro");
-        title.setFont(Font.font(42));
-
-        var form = registerForm(stage);
-
-        // Main VBox
-        VBox vBox = new VBox(20, title, form);
-        vBox.setAlignment(Pos.CENTER);
-
-        ScrollPane scrollPane = new ScrollPane(vBox);
-        scrollPane.setFitToWidth(true);
-
-        // Scene setup
-        root.getChildren().addAll(scrollPane);
-
-        return scene;
-    }
+                return scene;
+        }
 }
