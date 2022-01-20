@@ -8,11 +8,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
-import jfxtras.styles.jmetro.Style;
 import journey.fx.components.ControlWithLabel;
 
 public class LoginMenu {
@@ -46,13 +43,7 @@ public class LoginMenu {
 
         Button registerButton = new Button("Registrarse");
         registerButton.setOnAction((e) -> {
-            // FIXME: Don't re-create jMetro instance
-            var registerPage = RegisterPage.create(stage);
-            JMetro jMetro = new JMetro(Style.DARK);
-
-            jMetro.setScene(registerPage);
-
-            stage.setScene(registerPage);
+            stage.setScene(RegisterPage.create(stage));
         });
 
         // Main VBox
