@@ -14,18 +14,9 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.fx.Utils;
+import journey.fx.components.MenuButton;
 
 public class MainMenu {
-    private static class MenuButton extends Button {
-        public MenuButton(String text) {
-            super(text);
-
-            this.setWrapText(true);
-            this.setPrefSize(180, 180);
-            this.setAlignment(Pos.BOTTOM_LEFT);
-            this.setStyle("-fx-font-size: 16");
-        }
-    }
 
     private static Node menu() {
         HBox menuHBox = new HBox(20);

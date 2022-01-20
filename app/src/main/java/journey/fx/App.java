@@ -7,7 +7,6 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 import journey.fx.scenes.LoginMenu;
 import journey.fx.scenes.MainMenu;
-import journey.fx.scenes.RegisterPage;
 
 public class App extends Application {
 
