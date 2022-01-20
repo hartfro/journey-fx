@@ -25,7 +25,7 @@ public class LoginMenu {
 
         // Components
         Label title = new Label("Journey");
-        title.setFont(Font.font(42));
+        title.setStyle("-fx-font-size: 42");
 
 		double fieldWidth = root.getWidth() / 2;
 

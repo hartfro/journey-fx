@@ -79,8 +79,7 @@ public class RegisterPage {
                 });
 
                 formVBox.getChildren().addAll(usernameFieldBox, firstNameFieldBox, lastNameFieldBox, birthDatePickerBox,
-                                sexComboBox, numeroContactoFieldBox, ocupacionFieldBox, passwordFieldBox, submitButton
-                                );
+                                sexComboBox, numeroContactoFieldBox, ocupacionFieldBox, passwordFieldBox, submitButton);
 
                 formVBox.setAlignment(Pos.CENTER);
                 return formVBox;
@@ -95,7 +94,7 @@ public class RegisterPage {
 
                 // Components
                 Label title = new Label("Registro");
-                title.setFont(Font.font(42));
+                title.setStyle("-fx-font-size: 42");
 
                 var form = registerForm(stage);
 
