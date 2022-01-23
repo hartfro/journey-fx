@@ -51,13 +51,12 @@ public class InfoDia {
         return "Obesidad grado III.";
     }
     
-    /*TODO: metodos solicitados por la profe*/
-    public String diagnosticoEjercicio(String diagnostico){
-        return diagnostico;
+    public String diagnosticoEjercicio() {
+        return this.infoEjercicio.diagnostico();
     }
     
-    public String diagnosticoAlimentacion(String diagnostico){
-        return diagnostico;
+    public String diagnosticoAlimentacion(float minimoRecomendado, float maximoRecomendado) {
+        return this.infoAlimentacion.diagnostico(minimoRecomendado, maximoRecomendado);
     }
 
     // Getters and setters

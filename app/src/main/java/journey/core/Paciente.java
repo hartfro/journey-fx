@@ -49,15 +49,16 @@ public class Paciente {
                 encontrado = infoDia;
             }
         }
+
         return encontrado;
     }
-    /*TODO: este método debe ser llemado en el main cada que se ingrese un dia*/
-    public void agregarInfoDia(){
-        
+
+    public void agregarInfoDia(InfoDia infoDia) {
+        this.infoDiaria.add(infoDia);
     }
-    /*TODO: método solicitado por la profe*/
-    public void pedirDiagnosticoDia(LocalDate fecha){
-        //debe pedir el diagnóstico general de un día
+
+    public String buscarDiagnosticoIMCPorDia(LocalDate fecha) {
+        return this.buscarInfoDiaPorFecha(fecha).diagnosticoIMC();
     }
 
     public String nombreCompleto() {

@@ -50,18 +50,19 @@ public class InfoAlimentacion {
 
         return "¡Felicidades! Tu alimentación está dentro del rango de consumo de calorías recomendadas.";
     }
-    /*TODO: metodos de agregar solicitados por la profe, Esta clase tiene constructor??*/
-    public void agregarDesayuno(){
-        //LLENAR
+
+    public void agregarADesayuno(Alimento alimento, int porciones){
+        this.desayuno.put(alimento, porciones);
     }
     
-    public void agregarAlmuerzo(){
-        //LLENAR
+    public void agregarAAlmuerzo(Alimento alimento, int porciones){
+        this.almuerzo.put(alimento, porciones);
     }
     
-    public void agregarMerienda(){
-        //LLENAR
+    public void agregarAMerienda(Alimento alimento, int porciones){
+        this.merienda.put(alimento, porciones);
     }
+
     //Getters and setters
     public HashMap<Alimento, Integer> getDesayuno() {
         return desayuno;
