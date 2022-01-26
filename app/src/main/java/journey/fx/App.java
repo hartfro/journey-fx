@@ -6,10 +6,8 @@ import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
 import journey.fx.scenes.LoginMenu;
-import journey.fx.scenes.MenuVisualizarInfoDiaria;
 
 public class App extends Application {
-
     @Override
     public void start(Stage stage) {
         Scene loginMenu = LoginMenu.create(stage);
@@ -18,7 +16,7 @@ public class App extends Application {
         JMetro jMetro = new JMetro(Style.DARK);
         jMetro.setScene(loginMenu);
 
-        stage.setScene(MenuVisualizarInfoDiaria.scene(stage));
+        stage.setScene(loginMenu);
         stage.show();
     }
 
