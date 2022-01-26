@@ -16,7 +16,7 @@ import jfxtras.styles.jmetro.Style;
 import journey.fx.Utils;
 import journey.fx.components.MenuButton;
 
-public class MainMenu {
+public class LoggedInMenu {
 
     private static Node menu() {
         HBox menuHBox = new HBox(20);

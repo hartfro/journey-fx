@@ -5,12 +5,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
+import journey.core.Journey;
 import journey.fx.scenes.LoginMenu;
 
 public class App extends Application {
+    Journey journey = new Journey(true);
+
     @Override
     public void start(Stage stage) {
-        Scene loginMenu = LoginMenu.create(stage);
+        Scene loginMenu = LoginMenu.create(stage, journey);
 
         // Style
         JMetro jMetro = new JMetro(Style.DARK);

@@ -1,5 +1,7 @@
 package journey.fx.scenes;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,10 +12,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetroStyleClass;
+import journey.core.Journey;
 import journey.fx.components.ControlWithLabel;
 
 public class LoginMenu {
-    public static Scene create(Stage stage) {
+    public static Scene create(Stage stage, Journey journey) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 
@@ -39,7 +42,26 @@ public class LoginMenu {
         VBox passwordFieldBox = ControlWithLabel.create(_passwordField,
                 "Contraseña", fieldWidth);
 
+        // Error label
+        Label errorLabel = new Label();
+
+        // Submit button
         Button submitButton = new Button("Iniciar sesión");
+
+        EventHandler<ActionEvent> onSubmit = (e) -> {
+            var username = _usernameField.getText();
+            var password = _passwordField.getText();
+
+            var user = journey.login(username, password);
+            if (user != null) {
+                // Redirect to LoggedInMenu
+                stage.setScene(LoggedInMenu.scene(stage));
+            } else {
+                errorLabel.setText("Usuario o contraseña incorrecta.");
+            }
+        };
+
+        submitButton.setOnAction(onSubmit);
 
         Button registerButton = new Button("Registrarse");
         registerButton.setOnAction((e) -> {
@@ -47,7 +69,7 @@ public class LoginMenu {
         });
 
         // Main VBox
-        VBox vBox = new VBox(20, title, usernameFieldBox, passwordFieldBox, submitButton, registerButton);
+        VBox vBox = new VBox(20, title, usernameFieldBox, passwordFieldBox, errorLabel, submitButton, registerButton);
         vBox.setAlignment(Pos.CENTER);
 
         // Scene setup

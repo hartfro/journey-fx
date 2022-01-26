@@ -4,20 +4,39 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Main {
+public class Journey {
     public boolean isRunning = true;
 
     public ArrayList<Alimento> bancoAlimentos = new ArrayList<>();
     public HashMap<String, Paciente> pacientes = new HashMap<>();
     public Paciente loggedInPaciente = null;
 
-    private void setup() {
+    public Journey(boolean debug) {
+        this.setup();
+
+        if (debug)
+            this.testSetup();
+    }
+
+    public Paciente login(String username, String password) {
+        Paciente user = pacientes.get(username);
+
+        // Check password
+        if (user == null || !user.getPassword().equals(password)) {
+            return null;
+        }
+
+        this.loggedInPaciente = user;
+        return user;
+    }
+
+    public void setup() {
         this.bancoAlimentos.add(new Alimento("Pan", 265, TipoAlimento.CEREAL));
         this.bancoAlimentos.add(new Alimento("Huevo", 155, TipoAlimento.PROTEINA));
         this.bancoAlimentos.add(new Alimento("Agua", 0, TipoAlimento.LIQUIDO));
     }
 
-    private void testSetup() {
+    public void testSetup() {
         Paciente testPaciente = new Paciente("admin", "admin", "Anthony", "Suárez", LocalDate.parse("2003-12-20"),
                 Sexo.MASCULINO, "102938", "Estudiante");
 
