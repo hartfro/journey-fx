@@ -63,6 +63,11 @@ public class LoggedInMenu {
         mainVBox.getChildren().add(menu);
 
         Button logoutBtn = new Button("Cerrar sesión");
+        logoutBtn.setOnAction((e) -> {
+            journey.logout();
+
+            stage.setScene(LoginMenuPage.scene(stage, journey));
+        });
 
         HBox logoutBtnWrapper = new HBox(logoutBtn);
         logoutBtnWrapper.setPadding(new Insets(0, 30, 0, 0));

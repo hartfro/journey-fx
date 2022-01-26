@@ -30,6 +30,10 @@ public class Journey {
         return user;
     }
 
+    public void logout() {
+        this.loggedInPaciente = null;
+    }
+
     public void setup() {
         this.bancoAlimentos.add(new Alimento("Pan", 265, TipoAlimento.CEREAL));
         this.bancoAlimentos.add(new Alimento("Huevo", 155, TipoAlimento.PROTEINA));
