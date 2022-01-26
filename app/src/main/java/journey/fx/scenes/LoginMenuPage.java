@@ -15,8 +15,8 @@ import jfxtras.styles.jmetro.JMetroStyleClass;
 import journey.core.Journey;
 import journey.fx.components.ControlWithLabel;
 
-public class LoginMenu {
-    public static Scene create(Stage stage, Journey journey) {
+public class LoginMenuPage {
+    public static Scene scene(Stage stage, Journey journey) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 
@@ -55,7 +55,7 @@ public class LoginMenu {
             var user = journey.login(username, password);
             if (user != null) {
                 // Redirect to LoggedInMenu
-                stage.setScene(LoggedInMenu.scene(stage));
+                stage.setScene(LoggedInMenu.scene(stage, journey));
             } else {
                 errorLabel.setText("Usuario o contraseña incorrecta.");
             }

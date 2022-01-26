@@ -13,11 +13,11 @@ import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
+import journey.core.Journey;
 import journey.fx.Utils;
 import journey.fx.components.MenuButton;
 
 public class LoggedInMenu {
-
     private static Node menu() {
         HBox menuHBox = new HBox(20);
         menuHBox.setAlignment(Pos.CENTER);
@@ -37,7 +37,7 @@ public class LoggedInMenu {
         return menuHBox;
     }
 
-    public static Scene scene(Stage stage) {
+    public static Scene scene(Stage stage, Journey journey) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 
@@ -55,7 +55,7 @@ public class LoggedInMenu {
         title.setStyle("-fx-font-size: 42");
         mainVBox.getChildren().add(title);
 
-        Label subtitle = new Label("Menú");
+        Label subtitle = new Label("¡Hola, " + journey.loggedInPaciente.getPrimerNombre() + "!");
         subtitle.setStyle("-fx-font-size: 24");
         mainVBox.getChildren().add(subtitle);
 
