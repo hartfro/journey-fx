@@ -3,6 +3,7 @@ package journey.fx.scenes;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -23,10 +24,12 @@ public class IngresarInfoDiaComidaPage {
         // Components
 
         var pageLoader = new FXMLLoader(ClassLoader.getSystemResource("IngresarInfoDiaComidaPage.fxml"));
+
+        Node page = pageLoader.load();
         var pageController = pageLoader.<IngresarInfoDiaComidaController>getController();
         pageController.initData(journey);
 
-        root.getChildren().add(pageLoader.load());
+        root.getChildren().add(page);
 
         // Setup scene
 
