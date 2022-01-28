@@ -43,8 +43,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="journey.fx.controllers.IngresarInfoDiaController">
    <children>
       <GridPane prefWidth="632.0">
          <columnConstraints>
@@ -82,7 +81,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" />
+            <ChoiceBox fx:id="emocionChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" />
             <Label alignment="CENTER" style="&#10;" text="Ingrese la cantidad de minutos de ejercicio que hizo hoy" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
@@ -94,7 +93,7 @@
                </font>
             </Label>
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="intensidadChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Button mnemonicParsing="false" text="Continuar" />
