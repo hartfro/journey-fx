@@ -49,6 +49,7 @@ public class LoginMenuPage {
 
         // Submit button
         Button submitButton = new Button("Iniciar sesión");
+        submitButton.setDefaultButton(true);
 
         EventHandler<ActionEvent> onSubmit = (e) -> {
             var username = _usernameField.getText();
