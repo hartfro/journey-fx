@@ -32,14 +32,19 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -86,68 +91,315 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="57.0" layoutY="40.0" mnemonicParsing="false" text="Regresar" />
-            <Label alignment="CENTER" layoutX="225.0" layoutY="40.0" style="&#10;" text="Ingresar información diaria" textAlignment="CENTER" textFill="#636363" wrapText="false">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="57.0" layoutY="90.0" style="&#10;" text="Ingrese los alimentos que consumió y su porción:" textAlignment="CENTER" textFill="#636363" wrapText="false">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="294.0" layoutY="63.0" style="&#10;" text="Merienda" textAlignment="CENTER" textFill="#636363" wrapText="false">
+            <HBox prefHeight="52.0" prefWidth="593.0">
+               <children>
+                  <VBox prefHeight="52.0" prefWidth="211.0">
+                     <children>
+                        <Button contentDisplay="CENTER" mnemonicParsing="false" prefWidth="93.0" text="Regresar">
+                           <VBox.margin>
+                              <Insets left="25.0" top="15.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="630.0" text="Ingresar información diaria">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="52.0" prefHeight="26.0" prefWidth="640.0" text="Merienda">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <VBox layoutX="110.0" layoutY="117.0" prefHeight="200.0" prefWidth="119.0">
+            <HBox layoutY="78.0" prefHeight="26.0" prefWidth="640.0">
                <children>
-                  <CheckBox lineSpacing="1.0" mnemonicParsing="false" text="Pan blanco" />
-                  <CheckBox lineSpacing="1.0" mnemonicParsing="false" text="Pan integral" />
-                  <CheckBox mnemonicParsing="false" text="Arroz blanco" />
-                  <CheckBox mnemonicParsing="false" text="Arroz integral" />
-                  <CheckBox mnemonicParsing="false" text="Fideos blancos" />
-                  <CheckBox mnemonicParsing="false" text="Fideos integrales" />
-                  <CheckBox mnemonicParsing="false" text="Papas" />
-                  <CheckBox mnemonicParsing="false" text="Maíz" />
-                  <CheckBox mnemonicParsing="false" text="Lentejas" />
-                  <CheckBox mnemonicParsing="false" text="Fréjol" />
-                  <CheckBox mnemonicParsing="false" text="Tofu" />
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="482.0" style="&#10;" text="Ingrese los alimentos que consumió y su porción:" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
-            <VBox layoutX="420.0" layoutY="117.0" prefHeight="200.0" prefWidth="119.0">
+            </HBox>
+            <GridPane layoutX="100.0" layoutY="110.0" prefHeight="249.0" prefWidth="462.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="227.1999755859375" minHeight="10.0" prefHeight="212.799951171875" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="36.799993896484374" minHeight="0.0" prefHeight="26.00004882812499" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <CheckBox mnemonicParsing="false" text="Zanahoria" />
-                  <CheckBox mnemonicParsing="false" text="Pepinillo" />
-                  <CheckBox mnemonicParsing="false" text="Aguacate" />
-                  <CheckBox mnemonicParsing="false" text="Tomate" />
-                  <CheckBox mnemonicParsing="false" text="Manzana" />
-                  <CheckBox mnemonicParsing="false" text="Naranja" />
-                  <CheckBox mnemonicParsing="false" text="Fresas" />
-                  <CheckBox lineSpacing="1.0" mnemonicParsing="false" text="Plátano" />
-                  <CheckBox lineSpacing="1.0" mnemonicParsing="false" text="Melón" />
-                  <CheckBox mnemonicParsing="false" text="Papaya" />
-                  <CheckBox mnemonicParsing="false" text="Pera" />
+                  <VBox prefHeight="200.0" prefWidth="120.0" GridPane.columnIndex="1">
+                     <children>
+                        <HBox prefHeight="26.0" prefWidth="127.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Huevo" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="200.0" prefWidth="150.0">
+                           <children>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Queso" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Carne de res" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Carne de pollo" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Pescado" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Leche" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Zanahoria" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Lechuga" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="150.0">
+                     <children>
+                        <HBox prefHeight="26.0" prefWidth="127.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Arroz blanco" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="26.0" prefWidth="127.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Arroz integral" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="26.0" prefWidth="127.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Pan blanco" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="26.0" prefWidth="127.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Pan integral" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="26.0" prefWidth="127.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Papas" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="26.0" prefWidth="127.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Lentejas" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="26.0" prefWidth="127.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Fréjol" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="26.0" prefWidth="127.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Tofu" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="119.0" GridPane.columnIndex="2">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="150.0">
+                           <children>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Espinaca" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Aguacate" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Tomate" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Manzana" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Naranje" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Plátano" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Fresas" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="127.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="95.0" style="&#10;" text="Pera" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox prefHeight="20.0" prefWidth="32.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Continuar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
-            </VBox>
-            <VBox layoutX="265.0" layoutY="117.0" prefHeight="200.0" prefWidth="119.0">
-               <children>
-                  <CheckBox mnemonicParsing="false" text="Huevo" />
-                  <CheckBox mnemonicParsing="false" text="Carne de res" />
-                  <CheckBox mnemonicParsing="false" text="Carne de pollo" />
-                  <CheckBox lineSpacing="1.0" mnemonicParsing="false" text="Atún de lata" />
-                  <CheckBox lineSpacing="1.0" mnemonicParsing="false" text="Pescado" />
-                  <CheckBox mnemonicParsing="false" text="Queso" />
-                  <CheckBox mnemonicParsing="false" text="Leche" />
-                  <CheckBox mnemonicParsing="false" text="Yogurt" />
-                  <CheckBox mnemonicParsing="false" text="Espinaca" />
-                  <CheckBox mnemonicParsing="false" text="Lechuga" />
-                  <CheckBox mnemonicParsing="false" text="Apio" />
-               </children>
-            </VBox>
-            <Button layoutX="295.0" layoutY="317.0" mnemonicParsing="false" text="Finalizar" />
+            </GridPane>
       </children>
     </AnchorPane>
   </children>
