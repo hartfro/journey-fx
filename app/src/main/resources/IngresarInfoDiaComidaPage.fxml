@@ -41,7 +41,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="journey.fx.controllers.IngresarInfoDiaComidaController">
   <children>
       <StackPane alignment="TOP_LEFT" prefWidth="200.0">
          <children>
@@ -64,7 +64,7 @@
             <Insets bottom="10.0" top="10.0" />
          </padding>
       </StackPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" text="Desayuno">
+      <Label fx:id="nombreComidaLabel" alignment="CENTER" contentDisplay="CENTER" text="[Nombre Comida]">
          <font>
             <Font size="16.0" />
          </font>
@@ -76,7 +76,7 @@
       </Label>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
-            <TilePane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <TilePane fx:id="alimentosTilePane" prefColumns="3" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <Button mnemonicParsing="false" text="Continuar">
                <VBox.margin>
                   <Insets top="10.0" />
