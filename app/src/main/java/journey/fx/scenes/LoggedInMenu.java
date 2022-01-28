@@ -1,5 +1,7 @@
 package journey.fx.scenes;
 
+import java.io.IOException;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -18,12 +20,26 @@ import journey.fx.Utils;
 import journey.fx.components.MenuButton;
 
 public class LoggedInMenu {
-    private static Node menu() {
+    private static Node menu(Stage stage, Journey journey) {
         HBox menuHBox = new HBox(20);
         menuHBox.setAlignment(Pos.CENTER);
 
         MenuButton ingInfoDiariaBtn = new MenuButton("Ingresar información diaria");
         Utils.styleNoOverride(ingInfoDiariaBtn, "-fx-background-color: #4f65aa");
+        
+        Label errorLabel = new Label("");
+        ingInfoDiariaBtn.setOnAction((event) -> {
+            try {
+                stage.setScene(IngresarInfoDiaPage.scene(stage, journey));
+            } catch (IOException e) {
+                errorLabel.setText("Error: " + e);
+            }
+        });
+
+        if (!errorLabel.getText().equals("")) {
+            return errorLabel;
+        }
+
         menuHBox.getChildren().add(ingInfoDiariaBtn);
 
         MenuButton visInfoDiariaBtn = new MenuButton("Visualizar información y diagnósticos diarios");
@@ -59,7 +75,7 @@ public class LoggedInMenu {
         subtitle.setStyle("-fx-font-size: 24");
         mainVBox.getChildren().add(subtitle);
 
-        var menu = menu();
+        var menu = menu(stage, journey);
         mainVBox.getChildren().add(menu);
 
         Button logoutBtn = new Button("Cerrar sesión");
