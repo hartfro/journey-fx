@@ -45,7 +45,7 @@ public class IngresarInfoDiaController {
     public void initData(Stage stage, Journey journey) {
         continueBtn.setOnAction((event) -> {
             try {
-                stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey));
+                stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, 0));
             } catch (IOException e) {
                 System.out.println(e);
             }

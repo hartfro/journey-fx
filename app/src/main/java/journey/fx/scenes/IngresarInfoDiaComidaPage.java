@@ -14,7 +14,7 @@ import journey.core.Journey;
 import journey.fx.controllers.IngresarInfoDiaComidaController;
 
 public class IngresarInfoDiaComidaPage {
-    public static Scene scene(Stage stage, Journey journey) throws IOException {
+    public static Scene scene(Stage stage, Journey journey, int comidaIndex) throws IOException {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 
@@ -27,7 +27,7 @@ public class IngresarInfoDiaComidaPage {
 
         Node page = pageLoader.load();
         var pageController = pageLoader.<IngresarInfoDiaComidaController>getController();
-        pageController.initData(journey);
+        pageController.initData(stage, journey, comidaIndex);
 
         root.getChildren().add(page);
 
