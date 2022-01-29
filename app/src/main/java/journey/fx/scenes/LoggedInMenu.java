@@ -27,25 +27,27 @@ public class LoggedInMenu {
         MenuButton ingInfoDiariaBtn = new MenuButton("Ingresar información diaria");
         Utils.styleNoOverride(ingInfoDiariaBtn, "-fx-background-color: #4f65aa");
         
-        Label errorLabel = new Label("");
         ingInfoDiariaBtn.setOnAction((event) -> {
             try {
                 stage.setScene(IngresarInfoDiaPage.scene(stage, journey));
             } catch (IOException e) {
-                errorLabel.setText("Error: " + e);
+                System.out.println(e);
             }
         });
 
-        if (!errorLabel.getText().equals("")) {
-            return errorLabel;
-        }
-
         menuHBox.getChildren().add(ingInfoDiariaBtn);
 
+        // VisInfoDiariaBtn
         MenuButton visInfoDiariaBtn = new MenuButton("Visualizar información y diagnósticos diarios");
         Utils.styleNoOverride(visInfoDiariaBtn, "-fx-background-color: #4f8faa");
+
+        visInfoDiariaBtn.setOnAction((e) -> {
+            stage.setScene(MenuVisualizarInfoDiaria.scene(stage));
+        });
+        
         menuHBox.getChildren().add(visInfoDiariaBtn);
 
+        // VisPerfilBtn
         MenuButton visPerfilBtn = new MenuButton("Visualizar perfil de paciente");
         Utils.styleNoOverride(visPerfilBtn, "-fx-background-color: #4faaa0");
         menuHBox.getChildren().add(visPerfilBtn);
