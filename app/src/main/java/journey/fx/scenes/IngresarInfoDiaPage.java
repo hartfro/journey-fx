@@ -11,6 +11,7 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.core.Journey;
+import journey.fx.controllers.IngresarInfoDiaController;
 
 public class IngresarInfoDiaPage {
     public static Scene scene(Stage stage, Journey journey) throws IOException {
@@ -22,7 +23,11 @@ public class IngresarInfoDiaPage {
 
         // Components
 
-        Node page = FXMLLoader.load(ClassLoader.getSystemResource("IngresarInfoDiaPage.fxml"));
+        var pageLoader = new FXMLLoader(ClassLoader.getSystemResource("IngresarInfoDiaPage.fxml"));
+        Node page = pageLoader.load();
+        var controller = pageLoader.<IngresarInfoDiaController>getController();
+        controller.initData(stage, journey);        
+
         root.getChildren().add(page);
 
         // Setup scene

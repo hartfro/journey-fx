@@ -96,7 +96,7 @@
             <ChoiceBox fx:id="intensidadChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button mnemonicParsing="false" text="Continuar" />
+      <Button fx:id="continueBtn" mnemonicParsing="false" text="Continuar" />
    </children>
    <padding>
       <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />

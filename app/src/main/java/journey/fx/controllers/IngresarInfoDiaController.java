@@ -1,11 +1,16 @@
 package journey.fx.controllers;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.stage.Stage;
 import journey.core.Emocion;
 import journey.core.IntensidadEjercicio;
+import journey.core.Journey;
+import journey.fx.scenes.IngresarInfoDiaComidaPage;
 
 public class IngresarInfoDiaController {
     @FXML
@@ -13,6 +18,9 @@ public class IngresarInfoDiaController {
 
     @FXML
     ChoiceBox<String> intensidadChoiceBox;
+
+    @FXML
+    Button continueBtn;
 
     @FXML
     private void initialize() {
@@ -29,5 +37,18 @@ public class IngresarInfoDiaController {
         }
 
         intensidadChoiceBox.getItems().addAll(intensidadValues);
+
+        // Initialize button
+        continueBtn.setDefaultButton(true);
+    }
+
+    public void initData(Stage stage, Journey journey) {
+        continueBtn.setOnAction((event) -> {
+            try {
+                stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey));
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        });
     }
 }
