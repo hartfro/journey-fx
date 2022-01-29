@@ -77,7 +77,7 @@
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
             <TilePane fx:id="alimentosTilePane" prefColumns="3" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <Button mnemonicParsing="false" text="Continuar">
+            <Button fx:id="continueBtn" mnemonicParsing="false" text="Continuar">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
