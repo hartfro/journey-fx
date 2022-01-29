@@ -43,7 +43,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="392.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="journey.fx.controllers.PerfilPacienteControllerh">
+<VBox prefHeight="392.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="journey.fx.controllers.PerfilPacienteController">
   <children>
       <StackPane alignment="CENTER_LEFT">
          <children>

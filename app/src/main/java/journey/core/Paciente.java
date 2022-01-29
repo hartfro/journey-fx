@@ -18,7 +18,6 @@ public class Paciente {
     private Sexo sexo;
     private String numeroContacto;
     private String ocupacion;
-    ArrayList <InfoDia> infoDia = new ArrayList<InfoDia>();
 
     public SortedSet<InfoDia> infoDiaria = new TreeSet<>(Comparator.comparing(InfoDia::getFecha));
 
@@ -137,6 +136,10 @@ public class Paciente {
         float vecesEjercicioPorDia = (float) diasHechoEjercicio / rangoDiasDiario;
         // 2.46
         return (int) Math.ceil(vecesEjercicioPorDia * 7);
+    }
+
+    public InfoDia getInfoDiaMasReciente() {
+        return this.infoDiaria.last();
     }
 
     // Getters and setters

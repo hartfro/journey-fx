@@ -11,6 +11,7 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.core.Journey;
+import journey.fx.controllers.PerfilPacienteController;
 
 public class PerfilPacientePage {
     public static Scene scene(Stage stage, Journey journey) throws IOException {
@@ -22,7 +23,12 @@ public class PerfilPacientePage {
 
         // Components
 
-        Node page = FXMLLoader.load(ClassLoader.getSystemResource("PerfilPacientePage.fxml"));
+        var pageLoader = new FXMLLoader(ClassLoader.getSystemResource("PerfilPacientePage.fxml"));
+        Node page = pageLoader.load();
+
+        PerfilPacienteController pageController = pageLoader.getController();
+        pageController.initData(journey);
+
         root.getChildren().add(page);
 
         // Setup scene
