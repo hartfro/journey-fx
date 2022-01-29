@@ -50,6 +50,15 @@ public class LoggedInMenu {
         // VisPerfilBtn
         MenuButton visPerfilBtn = new MenuButton("Visualizar perfil de paciente");
         Utils.styleNoOverride(visPerfilBtn, "-fx-background-color: #4faaa0");
+
+        visPerfilBtn.setOnAction((event) -> {
+            try {
+                stage.setScene(PerfilPacientePage.scene(stage, journey));
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        });
+
         menuHBox.getChildren().add(visPerfilBtn);
 
         return menuHBox;
