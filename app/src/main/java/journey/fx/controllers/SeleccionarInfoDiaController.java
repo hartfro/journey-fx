@@ -1,8 +1,5 @@
 package journey.fx.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,7 +8,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import journey.core.InfoDia;
-import journey.core.Journey;
+import journey.core.Paciente;
 
 public class SeleccionarInfoDiaController {
     @FXML
@@ -23,19 +20,19 @@ public class SeleccionarInfoDiaController {
     @FXML
     Button resetDatePickerBtn;
 
-    private void resetInfoDiariaItems(ObservableList<InfoDia> items, Journey journey) {
+    private void resetInfoDiariaItems(ObservableList<InfoDia> items, Paciente paciente) {
         items.clear();
 
-        for (var infoDia : journey.loggedInPaciente.infoDiaria) {
+        for (var infoDia : paciente.infoDiaria) {
             items.add(infoDia);
         }
 
         infoDiariaListView.refresh();
     }
 
-    public void initData(Stage stage, Journey journey) {
+    public void initData(Stage stage, Paciente paciente) {
         ObservableList<InfoDia> infoDiariaItems = FXCollections.observableArrayList();
-        resetInfoDiariaItems(infoDiariaItems, journey);
+        resetInfoDiariaItems(infoDiariaItems, paciente);
 
         infoDiariaListView.setItems(FXCollections.observableList(infoDiariaItems));
 
@@ -43,7 +40,7 @@ public class SeleccionarInfoDiaController {
         datePicker.setOnAction((e) -> {
             infoDiariaItems.clear();
 
-            var foundInfoDia = journey.loggedInPaciente.buscarInfoDiaPorFecha(datePicker.getValue());
+            var foundInfoDia = paciente.buscarInfoDiaPorFecha(datePicker.getValue());
 
             if (foundInfoDia != null)
                 infoDiariaItems.add(foundInfoDia);
@@ -55,7 +52,7 @@ public class SeleccionarInfoDiaController {
         resetDatePickerBtn.setOnAction((e) -> {
             datePicker.setValue(null);
 
-            resetInfoDiariaItems(infoDiariaItems, journey);
+            resetInfoDiariaItems(infoDiariaItems, paciente);
         });
     }
 }

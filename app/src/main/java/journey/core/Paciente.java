@@ -5,7 +5,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.ArrayList;
 
 public class Paciente {
     static int MINIMO_ENTRADAS_CALCULO_EJERCICIO = 5;
