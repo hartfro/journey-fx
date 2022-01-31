@@ -50,5 +50,12 @@ public class SeleccionarInfoDiaController {
 
             infoDiariaListView.refresh();
         });
+
+        // Handle reset button.
+        resetDatePickerBtn.setOnAction((e) -> {
+            datePicker.setValue(null);
+
+            resetInfoDiariaItems(infoDiariaItems, journey);
+        });
     }
 }
