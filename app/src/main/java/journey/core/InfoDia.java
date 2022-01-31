@@ -19,6 +19,11 @@ public class InfoDia {
         this.infoEjercicio = infoEjercicio;
         this.infoAlimentacion = infoAlimentacion;
     }
+
+    @Override
+    public String toString() {
+        return this.fecha.format(Constantes.DATE_FORMATTER);
+    }
     
     public float calcularImc() {
         float alturaM = (float) this.getAltura() / 100f;

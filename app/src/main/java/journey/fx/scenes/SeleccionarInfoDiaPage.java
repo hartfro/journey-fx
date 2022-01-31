@@ -11,6 +11,7 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.core.Journey;
+import journey.fx.controllers.SeleccionarInfoDiaController;
 
 public class SeleccionarInfoDiaPage {
     public static Scene scene (Stage stage, Journey journey) throws IOException {
@@ -23,6 +24,9 @@ public class SeleccionarInfoDiaPage {
         // Components
         var pageLoader = new FXMLLoader(ClassLoader.getSystemResource("SeleccionarInfoDiaPage.fxml"));
         Node page = pageLoader.load();
+
+        SeleccionarInfoDiaController pageController = pageLoader.getController();
+        pageController.initData(stage, journey);
 
         root.getChildren().add(page);
 
