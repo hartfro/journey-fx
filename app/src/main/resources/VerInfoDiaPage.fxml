@@ -46,7 +46,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="journey.fx.controllers.VerInfoDiaPage">
+<VBox prefHeight="400.0" prefWidth="640.0" spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="journey.fx.controllers.VerInfoDiaController">
   <children>
       <StackPane alignment="CENTER_LEFT">
          <children>
@@ -147,7 +147,7 @@
             <Label fx:id="emocionLabel" text="[emocion]" GridPane.columnIndex="1" />
             <Label fx:id="tiempoEjercicioLabel" text="[tiempo ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label fx:id="intensidadEjercicioLabel" text="[intensidad ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="caloriasLabel" text="[calorias totales]" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="caloriasTotalesLabel" text="[calorias totales]" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
   </children>
