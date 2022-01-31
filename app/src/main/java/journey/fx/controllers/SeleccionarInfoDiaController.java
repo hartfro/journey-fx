@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -22,12 +23,32 @@ public class SeleccionarInfoDiaController {
     @FXML
     Button resetDatePickerBtn;
 
-    public void initData(Stage stage, Journey journey) {
-        List<InfoDia> infoDiariaItems = new ArrayList<>();
+    private void resetInfoDiariaItems(ObservableList<InfoDia> items, Journey journey) {
+        items.clear();
+
         for (var infoDia : journey.loggedInPaciente.infoDiaria) {
-            infoDiariaItems.add(infoDia);
+            items.add(infoDia);
         }
 
+        infoDiariaListView.refresh();
+    }
+
+    public void initData(Stage stage, Journey journey) {
+        ObservableList<InfoDia> infoDiariaItems = FXCollections.observableArrayList();
+        resetInfoDiariaItems(infoDiariaItems, journey);
+
         infoDiariaListView.setItems(FXCollections.observableList(infoDiariaItems));
+
+        // Handle date filter.
+        datePicker.setOnAction((e) -> {
+            infoDiariaItems.clear();
+
+            var foundInfoDia = journey.loggedInPaciente.buscarInfoDiaPorFecha(datePicker.getValue());
+
+            if (foundInfoDia != null)
+                infoDiariaItems.add(foundInfoDia);
+
+            infoDiariaListView.refresh();
+        });
     }
 }
