@@ -15,6 +15,7 @@ import jfxtras.styles.jmetro.Style;
 import journey.fx.Utils;
 import journey.fx.components.MenuButton;
 
+// TODO: eliminar esta página
 public class MenuVisualizarInfoDiaria {
 
     private static Node menu() {
