@@ -22,7 +22,7 @@ public class LoginMenuPage {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 
-        Scene scene = new Scene(root, 640, 480); // new Scene(640, 480);
+        Scene scene = new Scene(root, 640, 480);
         stage.setResizable(false);
 
         // Components

@@ -50,8 +50,8 @@
   <children>
       <StackPane alignment="CENTER_LEFT">
          <children>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" prefWidth="93.0" text="Regresar" />
-            <HBox fx:id="regresarBtn" alignment="CENTER">
+            <Button fx:id="regresarBtn" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="93.0" text="Regresar" />
+            <HBox alignment="CENTER">
                <children>
                   <Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" text="Información del día __/__/____">
                      <font>

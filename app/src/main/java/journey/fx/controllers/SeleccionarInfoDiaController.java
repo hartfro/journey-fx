@@ -1,5 +1,7 @@
 package journey.fx.controllers;
 
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,6 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import journey.core.InfoDia;
 import journey.core.Paciente;
+import journey.fx.scenes.VerInfoDiaPage;
 
 public class SeleccionarInfoDiaController {
     @FXML
@@ -53,6 +56,17 @@ public class SeleccionarInfoDiaController {
             datePicker.setValue(null);
 
             resetInfoDiariaItems(infoDiariaItems, paciente);
+        });
+
+        // Handle ListView click.
+        infoDiariaListView.setOnMouseClicked((event) -> {
+            InfoDia selectedInfoDia = infoDiariaListView.getSelectionModel().getSelectedItem();
+
+            try {
+                stage.setScene(VerInfoDiaPage.scene(stage, selectedInfoDia));
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
         });
     }
 }
