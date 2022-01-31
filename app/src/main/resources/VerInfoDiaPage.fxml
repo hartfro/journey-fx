@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="journey.fx.controllers.VerInfoDiaPage">
+  <children>
+      <StackPane alignment="CENTER_LEFT">
+         <children>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" prefWidth="93.0" text="Regresar" />
+            <HBox fx:id="regresarBtn" alignment="CENTER">
+               <children>
+                  <Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" text="Información del día __/__/____">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+      <GridPane prefHeight="287.0" prefWidth="640.0" vgap="5.0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.80001220703124" minWidth="10.0" prefWidth="208.000048828125" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.79998779296875" minWidth="10.0" prefWidth="215.00001220703126" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.80001220703127" minWidth="10.0" prefWidth="216.59998779296882" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="27.200006103515626" minHeight="7.199981689453125" prefHeight="16.7999755859375" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="53.60001831054687" minHeight="8.00001220703125" prefHeight="17.39999389648437" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="81.59998779296875" minHeight="10.0" prefHeight="19.600006103515625" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="98.1999740600586" minHeight="8.399987792968744" prefHeight="17.00000610351563" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="122.80001068115234" minHeight="10.0" prefHeight="24.000018310546878" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="139.99997558593748" minHeight="2.4000000000000057" prefHeight="126.39999999999999" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="26.600012207031227" minHeight="1.6000244140624886" prefHeight="21.60002441406249" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="48.19998779296873" minHeight="10.0" prefHeight="42.39997558593751" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" style="&#10;" text="Emoción predominante:" textAlignment="CENTER" textFill="#636363" wrapText="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" style="&#10;" text="Ejercicio" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" style="&#10;" text="Tiempo:" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" style="&#10;" text="Intensidad:" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" style="&#10;" text="Alimentación" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" style="&#10;" text="Calorías totales: " textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="continueBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Continuar" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Button>
+            <TitledPane animated="false" collapsible="false" text="Desayuno" GridPane.rowIndex="5">
+               <content>
+                  <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <Accordion fx:id="desayunoAccordion" />
+                     </content>
+                  </ScrollPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" layoutX="10.0" layoutY="138.0" text="Almuerzo" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <content>
+                  <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <Accordion fx:id="almuerzoAccordion" />
+                     </content>
+                  </ScrollPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" layoutX="208.0" layoutY="138.0" text="Merienda" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <content>
+                  <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <Accordion fx:id="meriendaAccordion" />
+                     </content>
+                  </ScrollPane>
+               </content>
+            </TitledPane>
+            <Label fx:id="emocionLabel" text="[emocion]" GridPane.columnIndex="1" />
+            <Label fx:id="tiempoEjercicioLabel" text="[tiempo ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="intensidadEjercicioLabel" text="[intensidad ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="caloriasLabel" text="[calorias totales]" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+  </children>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+</VBox>
