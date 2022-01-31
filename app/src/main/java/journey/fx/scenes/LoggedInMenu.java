@@ -41,8 +41,12 @@ public class LoggedInMenu {
         MenuButton visInfoDiariaBtn = new MenuButton("Visualizar información y diagnósticos diarios");
         Utils.styleNoOverride(visInfoDiariaBtn, "-fx-background-color: #4f8faa");
 
-        visInfoDiariaBtn.setOnAction((e) -> {
-            stage.setScene(MenuVisualizarInfoDiaria.scene(stage));
+        visInfoDiariaBtn.setOnAction((event) -> {
+            try {
+                stage.setScene(SeleccionarInfoDiaPage.scene(stage, journey));
+            } catch (IOException e) {
+                System.out.println(e);
+            }
         });
         
         menuHBox.getChildren().add(visInfoDiariaBtn);
