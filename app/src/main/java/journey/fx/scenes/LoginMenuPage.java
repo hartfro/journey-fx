@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -16,6 +17,7 @@ import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.core.Journey;
 import journey.fx.components.ControlWithLabel;
+import journey.fx.utils.KeyEventConsumers;
 
 public class LoginMenuPage {
     public static Scene scene(Stage stage, Journey journey) {
@@ -34,12 +36,14 @@ public class LoginMenuPage {
         // Username field
         TextField _usernameField = new TextField();
         _usernameField.setPromptText("Ingrese su nombre de usuario");
+        _usernameField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonAlphanumeric(e));
 
         VBox usernameFieldBox = ControlWithLabel.create(_usernameField, "Nombre de usuario", fieldWidth);
 
         // Password field
         TextField _passwordField = new PasswordField();
         _passwordField.setPromptText("Ingrese su contraseña");
+        _passwordField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonAlphanumeric(e));
 
         VBox passwordFieldBox = ControlWithLabel.create(_passwordField,
                 "Contraseña", fieldWidth);
