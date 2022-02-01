@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Journey {
-    public boolean isRunning = true;
-
     public ArrayList<Alimento> bancoAlimentos = new ArrayList<>();
     public HashMap<String, Paciente> pacientes = new HashMap<>();
     public Paciente loggedInPaciente = null;
