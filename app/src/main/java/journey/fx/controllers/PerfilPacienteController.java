@@ -1,8 +1,11 @@
 package journey.fx.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import journey.core.Journey;
+import journey.fx.scenes.LoginMenuPage;
 
 public class PerfilPacienteController {
     @FXML
@@ -41,15 +44,18 @@ public class PerfilPacienteController {
     @FXML
     Label factorActividadLabel;
 
-    public void initData(Journey journey) {
-        var paciente = journey.loggedInPaciente;
+    @FXML
+    Button regresarBtn;
 
-        if (paciente == null)
-            return;
-
-        var ultimoInfoDia = paciente.getInfoDiaMasReciente();
+    public void initData(Stage stage, Journey journey) {
+        // regresarBtn
+        regresarBtn.setOnAction((e) -> {
+            stage.setScene(LoginMenuPage.scene(stage, journey));
+        });
 
         // Mostrar datos
+        var paciente = journey.loggedInPaciente;
+        var ultimoInfoDia = paciente.getInfoDiaMasReciente();
         // TODO: show custom text if ultimoInfoDia doesn't exist.
         nombreLabel.setText(paciente.nombreCompleto());
         fechaNacimientoLabel.setText(paciente.getFechaNacimiento().toString());

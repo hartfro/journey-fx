@@ -27,7 +27,7 @@ public class PerfilPacientePage {
         Node page = pageLoader.load();
 
         PerfilPacienteController pageController = pageLoader.getController();
-        pageController.initData(journey);
+        pageController.initData(stage, journey);
 
         root.getChildren().add(page);
 
