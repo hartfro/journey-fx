@@ -1,5 +1,7 @@
 package journey.fx.scenes;
 
+import java.time.LocalDate;
+
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -17,11 +19,14 @@ import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
+import journey.core.Journey;
+import journey.core.Paciente;
+import journey.core.Sexo;
 import journey.fx.components.ControlWithLabel;
 import journey.fx.utils.KeyEventConsumers;
 
 public class RegisterPage {
-    private static Node registerForm(Stage stage) {
+    private static Node registerForm(Stage stage, Journey journey) {
         VBox formVBox = new VBox(20);
 
         double fieldWidth = 320;
@@ -53,8 +58,9 @@ public class RegisterPage {
         VBox birthDatePickerBox = ControlWithLabel.create(_birthDatePicker, "Fecha de nacimiento", fieldWidth);
 
         // Sex field
-        ComboBox<String> _sexComboBox = new ComboBox<>();
-        _sexComboBox.getItems().addAll("hola", "hello");
+        ComboBox<Sexo> _sexComboBox = new ComboBox<>();
+        for (var s : Sexo.values())
+            _sexComboBox.getItems().add(s);
 
         VBox sexComboBox = ControlWithLabel.create(_sexComboBox, "Sexo", fieldWidth);
 
@@ -80,10 +86,26 @@ public class RegisterPage {
         VBox passwordFieldBox = ControlWithLabel.create(_passwordField, "Contraseña", fieldWidth);
 
         Button submitButton = new Button("Registrarse");
-        submitButton.setOnAction((e) -> {
-            VBox r = new VBox();
+        submitButton.setOnAction((event) -> {
+            String username = _usernameField.getText();
+            String password = _passwordField.getText();
+            String primerNombre = _firstNameField.getText();
+            String apellido = _lastNameField.getText();
+            // TODO: validar fecha de nacimiento y nulls y todo!!!
+            LocalDate fechaNacimiento = _birthDatePicker.getValue();
+            Sexo sexo = _sexComboBox.getValue();
+            String numeroContacto = _numeroContactoField.getText();
+            String ocupacion = _ocupacionField.getText();
 
-            stage.setScene(new Scene(r, 200, 200));
+            Paciente paciente = new Paciente(username, password, primerNombre, apellido, fechaNacimiento, sexo, numeroContacto, ocupacion);
+
+            try {
+                journey.registerUser(paciente);
+
+                stage.setScene(LoginMenuPage.scene(stage, journey));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         });
 
         formVBox.getChildren().addAll(usernameFieldBox, firstNameFieldBox, lastNameFieldBox, birthDatePickerBox,
@@ -93,7 +115,7 @@ public class RegisterPage {
         return formVBox;
     }
 
-    public static Scene create(Stage stage) {
+    public static Scene create(Stage stage, Journey journey) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 
@@ -104,7 +126,7 @@ public class RegisterPage {
         Label title = new Label("Registro");
         title.setStyle("-fx-font-size: 42");
 
-        var form = registerForm(stage);
+        var form = registerForm(stage, journey);
 
         // Main VBox
         VBox vBox = new VBox(20, title, form);

@@ -18,6 +18,14 @@ public class Journey {
             this.testSetup();
     }
 
+    public void registerUser(Paciente paciente) throws Exception {
+        if (this.pacientes.containsKey(paciente.getUsername())) {
+            throw new Exception("Nombre de usuario ya ocupado.");
+        }
+
+        this.pacientes.put(paciente.getUsername(), paciente);
+    }
+
     public Paciente login(String username, String password) {
         Paciente user = pacientes.get(username);
 

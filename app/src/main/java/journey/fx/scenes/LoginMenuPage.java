@@ -72,7 +72,7 @@ public class LoginMenuPage {
 
         Button registerButton = new Button("Registrarse");
         registerButton.setOnAction((e) -> {
-            stage.setScene(RegisterPage.create(stage));
+            stage.setScene(RegisterPage.create(stage, journey));
         });
 
         // Main VBox
