@@ -108,8 +108,14 @@ public class RegisterPage {
             }
         });
 
+		// Return Button
+        Button returnButton = new Button("Regresar");
+        returnButton.setOnAction((event) -> {
+            stage.setScene(LoginMenuPage.scene(stage, journey));
+        });
+
         formVBox.getChildren().addAll(usernameFieldBox, firstNameFieldBox, lastNameFieldBox, birthDatePickerBox,
-                sexComboBox, numeroContactoFieldBox, ocupacionFieldBox, passwordFieldBox, submitButton);
+                sexComboBox, numeroContactoFieldBox, ocupacionFieldBox, passwordFieldBox, submitButton, returnButton);
 
         formVBox.setAlignment(Pos.CENTER);
         return formVBox;
