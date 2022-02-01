@@ -27,8 +27,8 @@ public class IngresarInfoDiaComidaPage {
         var pageLoader = new FXMLLoader(ClassLoader.getSystemResource("IngresarInfoDiaComidaPage.fxml"));
 
         Node page = pageLoader.load();
-        var pageController = pageLoader.<IngresarInfoDiaComidaController>getController();
-        pageController.initData(stage, journey, comidaIndex);
+        IngresarInfoDiaComidaController pageController = pageLoader.getController();
+        pageController.initData(stage, journey, data, comidaIndex);
 
         root.getChildren().add(page);
 

@@ -6,11 +6,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import journey.core.Emocion;
 import journey.core.IntensidadEjercicio;
 import journey.core.Journey;
 import journey.fx.scenes.IngresarInfoDiaComidaPage;
+import journey.fx.utils.KeyEventConsumers;
 
 public class IngresarInfoDiaController {
     @FXML
@@ -25,18 +27,6 @@ public class IngresarInfoDiaController {
     @FXML
     Button continueBtn;
 
-    public static class Data {
-        Emocion emocion;
-        IntensidadEjercicio intensidadEjercicio;
-        int tiempoEjercicio;
-
-        public Data(Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
-            this.emocion = emocion; 
-            this.intensidadEjercicio = intensidad;
-            this.tiempoEjercicio = tiempoEjercicio;
-        }
-    }
-
     @FXML
     private void initialize() {
         for (var v : Emocion.values()) {
@@ -47,8 +37,23 @@ public class IngresarInfoDiaController {
             intensidadChoiceBox.getItems().add(v);
         }
 
+        // Add filter to tiempoEjercicioField
+        tiempoEjercicioField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
+
         // Initialize button
         continueBtn.setDefaultButton(true);
+    }
+
+    public static class Data {
+        Emocion emocion;
+        IntensidadEjercicio intensidadEjercicio;
+        int tiempoEjercicio;
+
+        public Data(Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
+            this.emocion = emocion; 
+            this.intensidadEjercicio = intensidad;
+            this.tiempoEjercicio = tiempoEjercicio;
+        }
     }
 
     public void initData(Stage stage, Journey journey) {
