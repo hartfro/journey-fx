@@ -12,9 +12,10 @@ import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.core.Journey;
 import journey.fx.controllers.IngresarInfoDiaComidaController;
+import journey.fx.controllers.IngresarInfoDiaController;
 
 public class IngresarInfoDiaComidaPage {
-    public static Scene scene(Stage stage, Journey journey, int comidaIndex) throws IOException {
+    public static Scene scene(Stage stage, Journey journey, IngresarInfoDiaController.Data data , int comidaIndex) throws IOException {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 

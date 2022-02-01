@@ -92,7 +92,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tiempoEjercicioField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ChoiceBox fx:id="intensidadChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>

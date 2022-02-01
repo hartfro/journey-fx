@@ -1,11 +1,11 @@
 package journey.fx.controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import journey.core.Emocion;
 import journey.core.IntensidadEjercicio;
@@ -14,29 +14,38 @@ import journey.fx.scenes.IngresarInfoDiaComidaPage;
 
 public class IngresarInfoDiaController {
     @FXML
-    ChoiceBox<String> emocionChoiceBox;
+    ChoiceBox<Emocion> emocionChoiceBox;
 
     @FXML
-    ChoiceBox<String> intensidadChoiceBox;
+    ChoiceBox<IntensidadEjercicio> intensidadChoiceBox;
+
+    @FXML
+    TextField tiempoEjercicioField;
 
     @FXML
     Button continueBtn;
 
+    public static class Data {
+        Emocion emocion;
+        IntensidadEjercicio intensidadEjercicio;
+        int tiempoEjercicio;
+
+        public Data(Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
+            this.emocion = emocion; 
+            this.intensidadEjercicio = intensidad;
+            this.tiempoEjercicio = tiempoEjercicio;
+        }
+    }
+
     @FXML
     private void initialize() {
-        ArrayList<String> emocionValues = new ArrayList<>();
         for (var v : Emocion.values()) {
-            emocionValues.add(v.toString());
+            emocionChoiceBox.getItems().add(v);
         }
 
-        emocionChoiceBox.getItems().addAll(emocionValues);
-
-        ArrayList<String> intensidadValues = new ArrayList<>();
         for (var v : IntensidadEjercicio.values()) {
-            intensidadValues.add(v.toString());
+            intensidadChoiceBox.getItems().add(v);
         }
-
-        intensidadChoiceBox.getItems().addAll(intensidadValues);
 
         // Initialize button
         continueBtn.setDefaultButton(true);
@@ -44,8 +53,13 @@ public class IngresarInfoDiaController {
 
     public void initData(Stage stage, Journey journey) {
         continueBtn.setOnAction((event) -> {
+            var emocion = emocionChoiceBox.getValue();
+            var intensidad = intensidadChoiceBox.getValue();
+            var tiempoEjercicio = Integer.parseInt(tiempoEjercicioField.getText());
+            IngresarInfoDiaController.Data data = new IngresarInfoDiaController.Data(emocion, intensidad, tiempoEjercicio);
+
             try {
-                stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, 0));
+                stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, data, 0));
             } catch (IOException e) {
                 System.out.println(e);
             }
