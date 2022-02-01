@@ -7,7 +7,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class Paciente {
-    static int MINIMO_ENTRADAS_CALCULO_EJERCICIO = 5;
+    final static int MINIMO_ENTRADAS_CALCULO_EJERCICIO = 5;
+    final static int ERROR_CALORIAS_RECOM = 100;
 
     private String username;
     private String password;
@@ -115,12 +116,23 @@ public class Paciente {
     }
 
     /**Devuelve el mínimo de calorías diarias recomendadas usando las fórmulas de Harris-Bennedict con un error de +-100.*/
+    public float idealCaloriasDiariasMinimo(InfoDia infoDia) {
+        return idealCaloriasDiariasMedia(infoDia) - ERROR_CALORIAS_RECOM;
+    }
+
     public float idealCaloriasDiariasMinimo() {
-        return idealCaloriasDiariasMedia() - 100;
+        return idealCaloriasDiariasMedia() - ERROR_CALORIAS_RECOM;
     }
     /**Devuelve el máximo de calorías diarias recomendadas usando las fórmulas de Harris-Bennedict con un error de +-100.*/
+    public float idealCaloriasDiariasMaximo(InfoDia infoDia) {
+        return this.idealCaloriasDiariasMedia(infoDia) + ERROR_CALORIAS_RECOM;
+    }
     public float idealCaloriasDiariasMaximo() {
-        return this.idealCaloriasDiariasMedia() + 100;
+        return this.idealCaloriasDiariasMedia() + ERROR_CALORIAS_RECOM;
+    }
+
+    public String rangoIdealCalorias(InfoDia infoDia) {
+        return "[" + idealCaloriasDiariasMinimo(infoDia) + ", " + idealCaloriasDiariasMaximo(infoDia) + "]";
     }
 
     public String rangoIdealCalorias() {

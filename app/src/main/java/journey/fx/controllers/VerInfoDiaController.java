@@ -79,9 +79,9 @@ public class VerInfoDiaController {
         populateComidaAccordion(meriendaAccordion, alimentacion.getMerienda());
 
         // Diagnósticos
-        var mediaRecom = paciente.idealCaloriasDiariasMedia(infoDia);
-        var minRecom = mediaRecom - 100;
-        var maxRecom = mediaRecom + 100;
+        var minRecom = paciente.idealCaloriasDiariasMinimo(infoDia);
+        var maxRecom = paciente.idealCaloriasDiariasMaximo(infoDia);
+        var rango = paciente.rangoIdealCalorias(infoDia);
 
         diagAlimentacionLabel.setText(alimentacion.diagnostico(minRecom, maxRecom));;
 
@@ -89,7 +89,7 @@ public class VerInfoDiaController {
 
         diagIMCLabel.setText(infoDia.diagnosticoIMC());
 
-        calRecomLabel.setText("[" + minRecom + ", " + maxRecom + "]");
+        calRecomLabel.setText(rango);
 
         // TODO: calcular de acuerdo a infoDia.
         factorActividadLabel.setText("" + paciente.calcularFactorActividad());
