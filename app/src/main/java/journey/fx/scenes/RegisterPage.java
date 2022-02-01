@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -17,6 +18,7 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.fx.components.ControlWithLabel;
+import journey.fx.utils.KeyEventConsumers;
 
 public class RegisterPage {
     private static Node registerForm(Stage stage) {
@@ -27,18 +29,21 @@ public class RegisterPage {
         // Username field
         TextField _usernameField = new TextField();
         _usernameField.setPromptText("Ingrese su nombre de usuario");
+        _usernameField.addEventHandler(KeyEvent.KEY_TYPED, e -> KeyEventConsumers.consumeNonAlphanumeric(e));
 
         VBox usernameFieldBox = ControlWithLabel.create(_usernameField, "Nombre de usuario", fieldWidth);
 
         // First name field
         TextField _firstNameField = new TextField();
         _firstNameField.setPromptText("Ingrese su primer nombre");
+        _firstNameField.addEventHandler(KeyEvent.KEY_TYPED, e -> KeyEventConsumers.consumeNonLetters(e));
 
         VBox firstNameFieldBox = ControlWithLabel.create(_firstNameField, "Primer nombre", fieldWidth);
 
         // Last name field
         TextField _lastNameField = new TextField();
         _lastNameField.setPromptText("Ingrese su apellido");
+        _lastNameField.addEventHandler(KeyEvent.KEY_TYPED, e -> KeyEventConsumers.consumeNonLetters(e));
 
         VBox lastNameFieldBox = ControlWithLabel.create(_lastNameField, "Apellido", fieldWidth);
 
@@ -56,18 +61,21 @@ public class RegisterPage {
         // Número contacto name field
         TextField _numeroContactoField = new TextField();
         _numeroContactoField.setPromptText("Ingrese su número de contacto");
+        _numeroContactoField.addEventHandler(KeyEvent.KEY_TYPED, e -> KeyEventConsumers.consumeNonDigits(e));
 
         VBox numeroContactoFieldBox = ControlWithLabel.create(_numeroContactoField, "Número de contacto", fieldWidth);
 
         // Ocupación field
         TextField _ocupacionField = new TextField();
         _ocupacionField.setPromptText("Ingrese su ocupación");
+        _ocupacionField.addEventHandler(KeyEvent.KEY_TYPED, e -> KeyEventConsumers.consumeNonLetters(e));
 
         VBox ocupacionFieldBox = ControlWithLabel.create(_ocupacionField, "Ocupación", fieldWidth);
 
         // Password field
         TextField _passwordField = new PasswordField();
         _passwordField.setPromptText("Ingrese su contraseña");
+        _passwordField.addEventHandler(KeyEvent.KEY_TYPED, e -> KeyEventConsumers.consumeNonAlphanumeric(e));
 
         VBox passwordFieldBox = ControlWithLabel.create(_passwordField, "Contraseña", fieldWidth);
 
