@@ -1,6 +1,7 @@
 package journey.fx.scenes;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,7 +21,7 @@ import journey.fx.Utils;
 import journey.fx.components.MenuButton;
 
 public class LoggedInMenu {
-    private static Node menu(Stage stage, Journey journey) {
+    private static Node menu(Stage stage, Journey journey, Label contextLabel) {
         HBox menuHBox = new HBox(20);
         menuHBox.setAlignment(Pos.CENTER);
 
@@ -28,6 +29,14 @@ public class LoggedInMenu {
         Utils.styleNoOverride(ingInfoDiariaBtn, "-fx-background-color: #4f65aa");
         
         ingInfoDiariaBtn.setOnAction((event) -> {
+            // Check if infoDia for today already exists.
+            var infoDiaNow = journey.loggedInPaciente.buscarInfoDiaPorFecha(LocalDate.now());
+
+            if (infoDiaNow != null) {
+                contextLabel.setText("Ya existe un registro para hoy.");
+                return;
+            }
+
             try {
                 stage.setScene(IngresarInfoDiaPage.scene(stage, journey));
             } catch (IOException e) {
@@ -90,8 +99,12 @@ public class LoggedInMenu {
         subtitle.setStyle("-fx-font-size: 24");
         mainVBox.getChildren().add(subtitle);
 
-        var menu = menu(stage, journey);
+        Label contextLabel = new Label("¡Bienvenido!");
+
+        var menu = menu(stage, journey, contextLabel);
         mainVBox.getChildren().add(menu);
+
+        mainVBox.getChildren().add(contextLabel);
 
         Button logoutBtn = new Button("Cerrar sesión");
         logoutBtn.setOnAction((e) -> {
