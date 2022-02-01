@@ -146,7 +146,7 @@ public class IngresarInfoDiaComidaController {
             InfoDia infoDia = new InfoDia(data.emocion, infoEjercicio, infoAlimentacion);
             journey.loggedInPaciente.agregarInfoDia(infoDia);
 
-            nextPage = LoggedInMenu.scene(stage, journey);
+            nextPage = LoggedInMenu.scene(stage, journey, "¡Registro creado exitosamente!");
         }
 
         return nextPage;

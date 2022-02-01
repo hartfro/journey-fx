@@ -78,6 +78,10 @@ public class LoggedInMenu {
     }
 
     public static Scene scene(Stage stage, Journey journey) {
+        return scene(stage, journey, "¡Bienvenido/a!");
+    }
+
+    public static Scene scene(Stage stage, Journey journey, String contextMsg) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 
@@ -99,7 +103,7 @@ public class LoggedInMenu {
         subtitle.setStyle("-fx-font-size: 24");
         mainVBox.getChildren().add(subtitle);
 
-        Label contextLabel = new Label("¡Bienvenido!");
+        Label contextLabel = new Label(contextMsg);
 
         var menu = menu(stage, journey, contextLabel);
         mainVBox.getChildren().add(menu);
