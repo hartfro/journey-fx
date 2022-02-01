@@ -13,6 +13,13 @@ public class InfoDia {
     private InfoEjercicio infoEjercicio;
     private InfoAlimentacion infoAlimentacion;
 
+    public InfoDia(Emocion emocion, InfoEjercicio infoEjercicio, InfoAlimentacion infoAlimentacion) {
+        this.fecha = LocalDate.now();
+        this.emocion = emocion;
+        this.infoEjercicio = infoEjercicio;
+        this.infoAlimentacion = infoAlimentacion;
+    }
+
     public InfoDia(LocalDate fecha, Emocion emocion, InfoEjercicio infoEjercicio, InfoAlimentacion infoAlimentacion) {
         this.fecha = fecha;
         this.emocion = emocion;

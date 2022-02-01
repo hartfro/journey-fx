@@ -1,18 +1,28 @@
 package journey.core;
+
 import java.util.HashMap;
 
+/**
+ * Contiene la información de las varias "comidas" del día (desayuno, almuerzo,
+ * merienda).
+ *
+ * Cada comida contiene la cantidad de porciones consumidas de cada alimento,
+ * almacenadas en un {@link HashMap}.
+ */
 public class InfoAlimentacion {
 
-    /**
-     * Información de una "comida" (desayuno, almuerzo, merienda).
-     *
-     * Contiene la cantidad de porciones consumidas de cada alimento.
-     *
-     * Extiende a un {@code HashMap<Alimento, Integer>}.
-     */
     private HashMap<Alimento, Integer> desayuno = new HashMap<Alimento, Integer>();
     private HashMap<Alimento, Integer> almuerzo = new HashMap<Alimento, Integer>();
     private HashMap<Alimento, Integer> merienda = new HashMap<Alimento, Integer>();
+
+    public InfoAlimentacion() {}
+
+    public InfoAlimentacion(HashMap<Alimento, Integer> desayuno, HashMap<Alimento, Integer> almuerzo,
+            HashMap<Alimento, Integer> merienda) {
+        this.desayuno = desayuno;
+        this.almuerzo = almuerzo;
+        this.merienda = merienda;
+    }
 
     public float caloriasTotales() {
         float resultado = 0;
@@ -51,19 +61,19 @@ public class InfoAlimentacion {
         return "¡Felicidades! Tu alimentación está dentro del rango de consumo de calorías recomendadas.";
     }
 
-    public void agregarADesayuno(Alimento alimento, int porciones){
+    public void agregarADesayuno(Alimento alimento, int porciones) {
         this.desayuno.put(alimento, porciones);
     }
-    
-    public void agregarAAlmuerzo(Alimento alimento, int porciones){
+
+    public void agregarAAlmuerzo(Alimento alimento, int porciones) {
         this.almuerzo.put(alimento, porciones);
     }
-    
-    public void agregarAMerienda(Alimento alimento, int porciones){
+
+    public void agregarAMerienda(Alimento alimento, int porciones) {
         this.merienda.put(alimento, porciones);
     }
 
-    //Getters and setters
+    // Getters and setters
     public HashMap<Alimento, Integer> getDesayuno() {
         return desayuno;
     }

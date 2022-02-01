@@ -15,6 +15,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import journey.core.Alimento;
 import journey.core.Emocion;
+import journey.core.InfoAlimentacion;
+import journey.core.InfoDia;
+import journey.core.InfoEjercicio;
 import journey.core.IntensidadEjercicio;
 import journey.core.Journey;
 import journey.fx.scenes.IngresarInfoDiaComidaPage;
@@ -37,16 +40,17 @@ public class IngresarInfoDiaComidaController {
     }
 
     public static class Data extends IngresarInfoDiaController.Data {
-        HashMap<Alimento, Integer> desayuno;
-        HashMap<Alimento, Integer> almuerzo;
-        HashMap<Alimento, Integer> merienda;
+        HashMap<Alimento, Integer> desayuno = new HashMap<>();
+        HashMap<Alimento, Integer> almuerzo = new HashMap<>();
+        HashMap<Alimento, Integer> merienda = new HashMap<>();
 
         public Data(Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
             super(emocion, intensidad, tiempoEjercicio);
         }
     }
 
-    public void initData(Stage stage, Journey journey, IngresarInfoDiaController.Data oldData, int comidaIndex) throws IOException {
+    public void initData(Stage stage, Journey journey, IngresarInfoDiaController.Data oldData, int comidaIndex) {
+        System.out.println("Me llamaste???");
         IngresarInfoDiaComidaController.Data data = new IngresarInfoDiaComidaController.Data(oldData.emocion, oldData.intensidadEjercicio, oldData.tiempoEjercicio);
 
         HashMap<Alimento, TextField> porcionFields = new HashMap<>();
@@ -54,7 +58,7 @@ public class IngresarInfoDiaComidaController {
         this.initData(stage, journey, data, porcionFields, comidaIndex);
     }
 
-    public void initData(Stage stage, Journey journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) throws IOException {
+    public void initData(Stage stage, Journey journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) {
         if (comidaIndex < 0 || comidaIndex > 2)
             throw new IllegalArgumentException("comidaIndex must be an integer from 0 to 2.");
 
@@ -70,19 +74,43 @@ public class IngresarInfoDiaComidaController {
                 break;
         }
 
-        final Scene nextPage = getNextPage(stage, journey, data, comidaIndex);
-
-        // Set button action
-        continueBtn.setOnAction((e) -> {
-            stage.setScene(nextPage);
-        });
-
         // Add alimentos to TilePane
         for (var alimento : journey.bancoAlimentos) {
             var hBox = alimentoHBox(alimento, porcionFields);
 
             alimentosVBox.getChildren().add(hBox);
         }
+
+        // Set button action
+        continueBtn.setOnAction((event) -> {
+            if (comidaIndex <= 2) {
+                HashMap<Alimento, Integer> comida = new HashMap<>();
+                for (var alimento : porcionFields.keySet()) {
+                    var field = porcionFields.get(alimento);
+
+                    comida.put(alimento, Integer.parseInt(field.getText()));
+                }
+
+                switch (comidaIndex) {
+                    case 0:
+                        data.desayuno = comida;
+                        break;
+                    case 1:
+                        data.almuerzo = comida;
+                        break;
+                    case 2:
+                        data.merienda = comida;
+                        break;
+                }
+            }
+
+            try {
+                var nextPage = getNextPage(stage, journey, data, porcionFields, comidaIndex);
+                stage.setScene(nextPage);
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        });
     }
 
     private Node alimentoHBox(Alimento alimento, HashMap<Alimento, TextField> fields) {
@@ -94,6 +122,7 @@ public class IngresarInfoDiaComidaController {
         hBox.getChildren().add(nombreLabel);
 
         TextField porcionesField = new TextField();
+        porcionesField.setText("0");
         porcionesField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
 
         hBox.getChildren().add(porcionesField);
@@ -103,13 +132,21 @@ public class IngresarInfoDiaComidaController {
         return hBox;
     }
 
-    private Scene getNextPage(Stage stage, Journey journey, IngresarInfoDiaComidaController.Data data, int comidaIndex) throws IOException {
+    private Scene getNextPage(Stage stage, Journey journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) throws IOException {
         Scene nextPage = null;
 
+        // Set next page.
         if (comidaIndex < 2) {
-            nextPage = IngresarInfoDiaComidaPage.scene(stage, journey, data, comidaIndex + 1);
+            nextPage = IngresarInfoDiaComidaPage.scene(stage, journey, data, porcionFields, comidaIndex + 1);
         }
         else {
+            InfoEjercicio infoEjercicio = new InfoEjercicio(data.tiempoEjercicio, data.intensidadEjercicio);
+
+            InfoAlimentacion infoAlimentacion = new InfoAlimentacion(data.desayuno, data.almuerzo, data.merienda);
+
+            InfoDia infoDia = new InfoDia(data.emocion, infoEjercicio, infoAlimentacion);
+            journey.loggedInPaciente.agregarInfoDia(infoDia);
+
             nextPage = LoggedInMenu.scene(stage, journey);
         }
 

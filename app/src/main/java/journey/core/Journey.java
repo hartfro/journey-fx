@@ -66,7 +66,7 @@ public class Journey {
         testAlimentacion.getDesayuno().put(bancoAlimentos.get(2), 2);
 
         testPaciente.infoDiaria.add(
-                new InfoDia(LocalDate.now(), Emocion.FELIZ, new InfoEjercicio(30, IntensidadEjercicio.FUERTE),
+                new InfoDia(LocalDate.of(2021, 11, 12), Emocion.FELIZ, new InfoEjercicio(30, IntensidadEjercicio.FUERTE),
                         testAlimentacion));
 
         this.pacientes.put(testPaciente.getUsername(), testPaciente);
