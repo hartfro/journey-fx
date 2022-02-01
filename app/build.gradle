@@ -41,3 +41,7 @@ javafx {
     version = "17"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
