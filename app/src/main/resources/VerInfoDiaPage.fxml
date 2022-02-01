@@ -53,7 +53,6 @@
   <children>
       <StackPane alignment="CENTER_LEFT">
          <children>
-            <Button fx:id="regresarBtn" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="93.0" text="Regresar" />
             <HBox alignment="CENTER">
                <children>
                   <Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" text="Información del día __/__/____">
@@ -66,6 +65,7 @@
                   </Label>
                </children>
             </HBox>
+            <Button fx:id="regresarBtn" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="93.0" text="Regresar" />
          </children>
       </StackPane>
       <TabPane VBox.vgrow="ALWAYS">
