@@ -63,7 +63,7 @@ public class SeleccionarInfoDiaController {
             InfoDia selectedInfoDia = infoDiariaListView.getSelectionModel().getSelectedItem();
 
             try {
-                stage.setScene(VerInfoDiaPage.scene(stage, selectedInfoDia));
+                stage.setScene(VerInfoDiaPage.scene(stage, selectedInfoDia, paciente));
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }

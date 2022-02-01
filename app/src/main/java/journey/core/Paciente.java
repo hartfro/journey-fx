@@ -72,6 +72,7 @@ public class Paciente {
      * Si el número de entradas en el diario es menor a MINIMO_ENTRADAS_CALCULO_EJERCICIO, se asume que el factor de actividad es el mínimo (1.2).
      * */
     public float calcularFactorActividad() {
+        // TODO: calcular de acuerdo a un infoDia específico.
         if (this.infoDiaria.size() < MINIMO_ENTRADAS_CALCULO_EJERCICIO) {
             return 1.2f;
         }
@@ -95,15 +96,24 @@ public class Paciente {
      *
      * Se sugiere utilizar un rango recomendad de +-100.
      * */
-    public float idealCaloriasDiariasMedia() {
-        var peso = this.infoDiaria.last().getPeso();
-        var altura = this.infoDiaria.last().getAltura();
+    public float idealCaloriasDiariasMedia(InfoDia infoDia) {
+        var peso = infoDia.getPeso();
+        var altura = infoDia.getAltura();
 
         if (this.getSexo() == Sexo.MASCULINO) {
             return (66 + (13.7f * peso)) + ((5f * altura)   - (6.8f * calcularEdad())) * calcularFactorActividad();
         }
         return (655 + (9.6f * peso)) + ((1.8f * altura) - (4.7f * calcularEdad())) * calcularFactorActividad();
     }
+
+    /**Calcula la media consumo ideal de calorías diarias de acuerdo a las fórmulas de Harris-Bennedict.
+     *
+     * Se sugiere utilizar un rango recomendad de +-100.
+     * */
+    public float idealCaloriasDiariasMedia() {
+        return idealCaloriasDiariasMedia(this.getInfoDiaMasReciente());
+    }
+
     /**Devuelve el mínimo de calorías diarias recomendadas usando las fórmulas de Harris-Bennedict con un error de +-100.*/
     public float idealCaloriasDiariasMinimo() {
         return idealCaloriasDiariasMedia() - 100;

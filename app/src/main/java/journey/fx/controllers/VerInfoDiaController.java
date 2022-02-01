@@ -13,6 +13,7 @@ import journey.core.Constantes;
 import journey.core.InfoAlimentacion;
 import journey.core.InfoDia;
 import journey.core.InfoEjercicio;
+import journey.core.Paciente;
 
 public class VerInfoDiaController {
     @FXML
@@ -45,7 +46,22 @@ public class VerInfoDiaController {
     @FXML
     Label caloriasTotalesLabel;
 
-    public void initData(InfoDia infoDia) {
+    @FXML
+    Label diagAlimentacionLabel;
+
+    @FXML
+    Label diagEjercicioLabel;
+
+    @FXML
+    Label diagIMCLabel;
+
+    @FXML
+    Label calRecomLabel;
+
+    @FXML
+    Label factorActividadLabel;
+
+    public void initData(InfoDia infoDia, Paciente paciente) {
         InfoEjercicio ejercicio = infoDia.getInfoEjercicio();
         InfoAlimentacion alimentacion = infoDia.getInfoAlimentacion();
 
@@ -61,6 +77,22 @@ public class VerInfoDiaController {
         populateComidaAccordion(desayunoAccordion, alimentacion.getDesayuno());
         populateComidaAccordion(almuerzoAccordion, alimentacion.getAlmuerzo());
         populateComidaAccordion(meriendaAccordion, alimentacion.getMerienda());
+
+        // Diagnósticos
+        var mediaRecom = paciente.idealCaloriasDiariasMedia(infoDia);
+        var minRecom = mediaRecom - 100;
+        var maxRecom = mediaRecom + 100;
+
+        diagAlimentacionLabel.setText(alimentacion.diagnostico(minRecom, maxRecom));;
+
+        diagEjercicioLabel.setText(ejercicio.diagnostico());;
+
+        diagIMCLabel.setText(infoDia.diagnosticoIMC());
+
+        calRecomLabel.setText("[" + minRecom + ", " + maxRecom + "]");
+
+        // TODO: calcular de acuerdo a infoDia.
+        factorActividadLabel.setText("" + paciente.calcularFactorActividad());
     }
 
     private void populateComidaAccordion(Accordion comidaAccordion, HashMap<Alimento, Integer> comida) {
