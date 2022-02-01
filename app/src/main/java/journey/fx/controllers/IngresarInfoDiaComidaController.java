@@ -50,7 +50,6 @@ public class IngresarInfoDiaComidaController {
     }
 
     public void initData(Stage stage, Journey journey, IngresarInfoDiaController.Data oldData, int comidaIndex) {
-        System.out.println("Me llamaste???");
         IngresarInfoDiaComidaController.Data data = new IngresarInfoDiaComidaController.Data(oldData.emocion, oldData.intensidadEjercicio, oldData.tiempoEjercicio);
 
         HashMap<Alimento, TextField> porcionFields = new HashMap<>();
