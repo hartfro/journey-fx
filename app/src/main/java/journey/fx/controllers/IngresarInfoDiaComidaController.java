@@ -86,8 +86,11 @@ public class IngresarInfoDiaComidaController {
                 HashMap<Alimento, Integer> comida = new HashMap<>();
                 for (var alimento : porcionFields.keySet()) {
                     var field = porcionFields.get(alimento);
+                    var porciones = Integer.parseInt(field.getText());
 
-                    comida.put(alimento, Integer.parseInt(field.getText()));
+                    if (porciones > 0) {
+                        comida.put(alimento, Integer.parseInt(field.getText()));
+                    }
                 }
 
                 switch (comidaIndex) {
