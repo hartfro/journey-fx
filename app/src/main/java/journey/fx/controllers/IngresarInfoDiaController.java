@@ -12,6 +12,7 @@ import journey.core.Emocion;
 import journey.core.IntensidadEjercicio;
 import journey.core.Estado;
 import journey.fx.scenes.IngresarInfoDiaComidaPage;
+import journey.fx.scenes.LoggedInMenu;
 import journey.fx.utils.KeyEventConsumers;
 
 public class IngresarInfoDiaController {
@@ -32,6 +33,9 @@ public class IngresarInfoDiaController {
 
     @FXML
     Button continueBtn;
+
+    @FXML
+    Button regresarBtn;
 
     @FXML
     private void initialize() {
@@ -71,6 +75,10 @@ public class IngresarInfoDiaController {
     }
 
     public void initData(Stage stage, Estado journey) {
+        regresarBtn.setOnAction((event) -> {
+            stage.setScene(LoggedInMenu.scene(stage, journey));
+        });
+
         continueBtn.setOnAction((event) -> {
             if (emocionChoiceBox.getValue() == null || intensidadChoiceBox.getValue() == null || tiempoEjercicioField.getText().isEmpty()) {
 

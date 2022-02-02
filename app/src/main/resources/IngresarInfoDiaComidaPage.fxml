@@ -44,11 +44,6 @@
   <children>
       <StackPane alignment="TOP_LEFT" prefWidth="200.0">
          <children>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" prefWidth="93.0" text="Regresar">
-               <StackPane.margin>
-                  <Insets left="10.0" />
-               </StackPane.margin>
-            </Button>
             <HBox alignment="CENTER" prefWidth="200.0">
                <children>
                   <Label text="Ingresar información diaria">
@@ -58,6 +53,11 @@
                   </Label>
                </children>
             </HBox>
+            <Button fx:id="regresarBtn" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="93.0" text="Regresar">
+               <StackPane.margin>
+                  <Insets left="10.0" />
+               </StackPane.margin>
+            </Button>
          </children>
          <padding>
             <Insets bottom="10.0" top="10.0" />

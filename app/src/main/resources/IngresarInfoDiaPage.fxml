@@ -54,7 +54,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" text="Regresar" />
+            <Button fx:id="regresarBtn" mnemonicParsing="false" text="Regresar" />
             <Label alignment="CENTER" style="&#10;" text="Ingresar información diaria" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />

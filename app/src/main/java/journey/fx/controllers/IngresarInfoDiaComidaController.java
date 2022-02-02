@@ -21,6 +21,7 @@ import journey.core.InfoEjercicio;
 import journey.core.IntensidadEjercicio;
 import journey.core.Estado;
 import journey.fx.scenes.IngresarInfoDiaComidaPage;
+import journey.fx.scenes.IngresarInfoDiaPage;
 import journey.fx.scenes.LoggedInMenu;
 import journey.fx.utils.KeyEventConsumers;
 
@@ -33,6 +34,9 @@ public class IngresarInfoDiaComidaController {
 
     @FXML
     Button continueBtn;
+
+    @FXML
+    Button regresarBtn;
 
     @FXML
     private void initialize() {
@@ -58,6 +62,21 @@ public class IngresarInfoDiaComidaController {
     }
 
     public void initData(Stage stage, Estado journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) {
+        regresarBtn.setOnAction((event) -> {
+            try {
+                System.out.println("Holaaaaa");
+                if (comidaIndex == 0) {
+                    stage.setScene(IngresarInfoDiaPage.scene(stage, journey));
+                    return;
+                }
+
+                stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, data, comidaIndex - 1));
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        });
+
+        // Handle data
         if (comidaIndex < 0 || comidaIndex > 2)
             throw new IllegalArgumentException("comidaIndex must be an integer from 0 to 2.");
 
