@@ -99,6 +99,7 @@ public class RegisterPage {
         VBox passwordFieldBox = ControlWithLabel.create(_passwordField, "Contraseña", fieldWidth);
 
         Button submitButton = new Button("Registrarse");
+        submitButton.setDefaultButton(true);
         submitButton.setOnAction((event) -> {
             String username = _usernameField.getText();
             String password = _passwordField.getText();
@@ -114,6 +115,10 @@ public class RegisterPage {
             // Validaciones en blanco
             if (username.isEmpty()) {
                 _usernameField.setPromptText("No dejar en blanco");
+                shouldContinue = false;
+            } else if (journey.getPacientes().containsKey(username)) {
+                _usernameField.clear();
+                _usernameField.setPromptText("Nombre de usuario ya ocupado.");
                 shouldContinue = false;
             }
 
