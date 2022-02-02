@@ -64,7 +64,6 @@ public class IngresarInfoDiaComidaController {
     public void initData(Stage stage, Estado journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) {
         regresarBtn.setOnAction((event) -> {
             try {
-                System.out.println("Holaaaaa");
                 if (comidaIndex == 0) {
                     stage.setScene(IngresarInfoDiaPage.scene(stage, journey));
                     return;
