@@ -16,87 +16,110 @@ import journey.fx.scenes.LoggedInMenu;
 import journey.fx.utils.KeyEventConsumers;
 
 public class IngresarInfoDiaController {
-    @FXML
-    TextField pesoField;
+	@FXML
+	TextField pesoField;
 
-    @FXML
-    TextField alturaField;
+	@FXML
+	TextField alturaField;
 
-    @FXML
-    ChoiceBox<Emocion> emocionChoiceBox;
+	@FXML
+	ChoiceBox<Emocion> emocionChoiceBox;
 
-    @FXML
-    ChoiceBox<IntensidadEjercicio> intensidadChoiceBox;
+	@FXML
+	ChoiceBox<IntensidadEjercicio> intensidadChoiceBox;
 
-    @FXML
-    TextField tiempoEjercicioField;
+	@FXML
+	TextField tiempoEjercicioField;
 
-    @FXML
-    Button continueBtn;
+	@FXML
+	Button continueBtn;
 
-    @FXML
-    Button regresarBtn;
+	@FXML
+	Button regresarBtn;
 
-    @FXML
-    private void initialize() {
-        for (var v : Emocion.values()) {
-            emocionChoiceBox.getItems().add(v);
-        }
+	@FXML
+	private void initialize() {
+		for (var v : Emocion.values()) {
+			emocionChoiceBox.getItems().add(v);
+		}
 
-        for (var v : IntensidadEjercicio.values()) {
-            intensidadChoiceBox.getItems().add(v);
-        }
+		for (var v : IntensidadEjercicio.values()) {
+			intensidadChoiceBox.getItems().add(v);
+		}
 
-        // Add filters to fields.
-        tiempoEjercicioField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
+		// Add filters to fields.
+		tiempoEjercicioField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
 
-        pesoField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
+		pesoField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
 
-        alturaField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
+		alturaField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
 
-        // Initialize button
-        continueBtn.setDefaultButton(true);
-    }
+		// Initialize button
+		continueBtn.setDefaultButton(true);
+	}
 
-    public static class Data {
-        float peso;
-        int altura;
-        Emocion emocion;
-        IntensidadEjercicio intensidadEjercicio;
-        int tiempoEjercicio;
+	public static class Data {
+		float peso;
+		int altura;
+		Emocion emocion;
+		IntensidadEjercicio intensidadEjercicio;
+		int tiempoEjercicio;
 
-        public Data(float peso, int altura, Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
-            this.peso = peso;
-            this.altura = altura;
-            this.emocion = emocion; 
-            this.intensidadEjercicio = intensidad;
-            this.tiempoEjercicio = tiempoEjercicio;
-        }
-    }
+		public Data(float peso, int altura, Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
+			this.peso = peso;
+			this.altura = altura;
+			this.emocion = emocion;
+			this.intensidadEjercicio = intensidad;
+			this.tiempoEjercicio = tiempoEjercicio;
+		}
+	}
 
-    public void initData(Stage stage, Estado journey) {
-        regresarBtn.setOnAction((event) -> {
-            stage.setScene(LoggedInMenu.scene(stage, journey));
-        });
+	public void initData(Stage stage, Estado journey) {
+		regresarBtn.setOnAction((event) -> {
+			stage.setScene(LoggedInMenu.scene(stage, journey));
+		});
 
-        continueBtn.setOnAction((event) -> {
-            if (emocionChoiceBox.getValue() == null || intensidadChoiceBox.getValue() == null || tiempoEjercicioField.getText().isEmpty()) {
+		continueBtn.setOnAction((event) -> {
+			if (emocionChoiceBox.getValue() == null || intensidadChoiceBox.getValue() == null
+					|| tiempoEjercicioField.getText().isEmpty()
+					|| alturaField.getText().isEmpty() || pesoField.getText().isEmpty()
+					|| alturaField.getText().equals("0") || pesoField.getText().equals("0")) {
+				if (tiempoEjercicioField.getText().isEmpty()) {
+					tiempoEjercicioField.setPromptText("No dejar en blanco");
+				}
 
-                // label de no dejar en blanco
-            } else {
-                var peso = Float.parseFloat(pesoField.getText());
-                var altura = Integer.parseInt(alturaField.getText());
-                var emocion = emocionChoiceBox.getValue();
-                var intensidad = intensidadChoiceBox.getValue();
-                var tiempoEjercicio = Integer.parseInt(tiempoEjercicioField.getText());
-                IngresarInfoDiaController.Data data = new IngresarInfoDiaController.Data(peso, altura, emocion, intensidad, tiempoEjercicio);
+				if (alturaField.getText().isEmpty()) {
+					alturaField.setPromptText("No dejar en blanco");
+				}
 
-                try {
-                    stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, data, 0));
-                } catch (IOException e) {
-                    System.out.println(e);
-                }
-            }
-        });
-    }
+				if (pesoField.getText().isEmpty()) {
+					pesoField.setPromptText("No dejar en blanco");
+				}
+
+				if (alturaField.getText().equals("0")) {
+					alturaField.clear();
+					alturaField.setPromptText("No puede ser 0");
+				}
+
+				if (pesoField.getText().equals("0")) {
+					pesoField.clear();
+					pesoField.setPromptText("No puede ser 0");
+				}
+			} else {
+				var peso = Float.parseFloat(pesoField.getText());
+				var altura = Integer.parseInt(alturaField.getText());
+				var emocion = emocionChoiceBox.getValue();
+				var intensidad = intensidadChoiceBox.getValue();
+				var tiempoEjercicio = Integer.parseInt(tiempoEjercicioField.getText());
+				IngresarInfoDiaController.Data data = new IngresarInfoDiaController.Data(peso, altura, emocion,
+						intensidad, tiempoEjercicio);
+
+				try {
+					stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, data, 0));
+				} catch (IOException e) {
+					System.out.println(e);
+				}
+			}
+		});
+	}
 }
