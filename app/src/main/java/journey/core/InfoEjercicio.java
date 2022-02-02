@@ -1,15 +1,37 @@
 package journey.core;
-
+/**
+ * Esta clase contiene la información y acciones relacionadas al registro del ejercicio. Se utiliza en la clase InfoDia y Paciente.
+ * @author Grupo 23
+ * @version 30/01/2022
+ */
 public class InfoEjercicio {
-    /**Duración del ejercicio en minutos.*/
+    // Atributos
+
+    /**
+     * Intensidad del ejercicio (NULO, LEVE, MODERADO, FUERTE)
+     */
     private IntensidadEjercicio intensidad;
+    /**
+     * Duración del ejercicio en minutos
+     */
     private int tiempo;
 
+    /**
+     * Constructor para InfoEjercicio
+     * @param tiempo
+     * @param intensidad
+     */
     public InfoEjercicio(int tiempo, IntensidadEjercicio intensidad) {
         this.tiempo = tiempo;
         this.intensidad = intensidad;
     }
 
+    // Métodos públicos
+
+    /**
+     * Método que devuelve el diagnóstico de ejercicio, en base a la intensidad y duración
+     * @return cadena de caracteres con el diagnóstico
+     */
     public String diagnostico() {
         if (tiempo == 0)
             return "Debes realizar más ejercicio para mantenerte saludable.";
@@ -45,18 +67,35 @@ public class InfoEjercicio {
 
     // Getters and setters
 
+    /**
+     * Método que devuelve la intensidad del ejercicio
+     * @return intensidad
+     */
+
     public IntensidadEjercicio getIntensidad() {
         return intensidad;
     }
 
+    /**
+     * Método que agrega la intensidad del ejercicio
+     * @param intensidad
+     */
     public void setIntensidad(IntensidadEjercicio intensidad) {
         this.intensidad = intensidad;
     }
 
+    /**
+     * Método que devuelve el tiempo de ejercicio realizado
+     * @return tiempo
+     */
     public int getTiempo() {
         return tiempo;
     }
 
+    /**
+     * Método que agrega el tiempo de ejercicio realizado
+     * @param tiempo
+     */
     public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
     }

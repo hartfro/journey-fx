@@ -1,14 +1,17 @@
 package journey.fx.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import journey.core.InfoDia;
 import journey.core.Estado;
 import journey.core.Paciente;
@@ -27,6 +30,7 @@ public class SeleccionarInfoDiaController {
 
     @FXML
     Button regresarBtn;
+
 
     private void resetInfoDiariaItems(ObservableList<InfoDia> items, Paciente paciente) {
         items.clear();
@@ -52,6 +56,22 @@ public class SeleccionarInfoDiaController {
         infoDiariaListView.setItems(FXCollections.observableList(infoDiariaItems));
 
         // Handle date filter.
+
+        Callback<DatePicker, DateCell> dayCellFactory = new Callback<DatePicker, DateCell>() {
+            public DateCell call(final DatePicker datePicker) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item.isAfter(LocalDate.now())) {
+                            this.setDisable(true);
+                        }
+                    }
+                };
+            }
+        };
+
+        datePicker.setDayCellFactory(dayCellFactory);
         datePicker.setOnAction((e) -> {
             infoDiariaItems.clear();
 

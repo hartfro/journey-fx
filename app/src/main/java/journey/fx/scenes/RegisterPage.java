@@ -5,13 +5,7 @@ import java.time.LocalDate;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -24,6 +18,11 @@ import journey.core.Paciente;
 import journey.core.Sexo;
 import journey.fx.components.ControlWithLabel;
 import journey.fx.utils.KeyEventConsumers;
+
+// Se añade: util
+import javafx.util.Callback;
+
+//import javax.security.auth.callback.Callback;
 
 public class RegisterPage {
     private static Node registerForm(Stage stage, Estado journey) {
@@ -54,7 +53,25 @@ public class RegisterPage {
 
         // Birth date field
         // FIXME: fix width
+
+        // Se añade: Validación no fechas futuras
+        Callback<DatePicker, DateCell> dayCellFactory = new Callback<DatePicker, DateCell>() {
+            public DateCell call(final DatePicker datePicker) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item.isAfter(LocalDate.now())) {
+                            this.setDisable(true);
+                        }
+                    }
+                };
+            }
+        };
+
         DatePicker _birthDatePicker = new DatePicker();
+        _birthDatePicker.setDayCellFactory(dayCellFactory);
+
         VBox birthDatePickerBox = ControlWithLabel.create(_birthDatePicker, "Fecha de nacimiento", fieldWidth);
 
         // Sex field
@@ -70,7 +87,6 @@ public class RegisterPage {
         _numeroContactoField.addEventHandler(KeyEvent.KEY_TYPED, e -> KeyEventConsumers.consumeNonDigits(e));
 
         VBox numeroContactoFieldBox = ControlWithLabel.create(_numeroContactoField, "Número de contacto", fieldWidth);
-
         // Ocupación field
         TextField _ocupacionField = new TextField();
         _ocupacionField.setPromptText("Ingrese su ocupación");
@@ -87,24 +103,66 @@ public class RegisterPage {
 
         Button submitButton = new Button("Registrarse");
         submitButton.setOnAction((event) -> {
-            String username = _usernameField.getText();
-            String password = _passwordField.getText();
-            String primerNombre = _firstNameField.getText();
-            String apellido = _lastNameField.getText();
-            // TODO: validar fecha de nacimiento y nulls y todo!!!
-            LocalDate fechaNacimiento = _birthDatePicker.getValue();
-            Sexo sexo = _sexComboBox.getValue();
-            String numeroContacto = _numeroContactoField.getText();
-            String ocupacion = _ocupacionField.getText();
+            if (_usernameField.getText().isEmpty() || _passwordField.getText().isEmpty() || _firstNameField.getText().isEmpty()
+                    || _lastNameField.getText().isEmpty() || _birthDatePicker.getValue() == null || _sexComboBox.getValue() == null
+                    || _numeroContactoField.getText().isEmpty() || _ocupacionField.getText().isEmpty() || _numeroContactoField.getLength() != 10)  {
 
-            Paciente paciente = new Paciente(username, password, primerNombre, apellido, fechaNacimiento, sexo, numeroContacto, ocupacion);
+                // Validaciones en blanco
+                if (_usernameField.getText().isEmpty()) {
+                    _usernameField.setPromptText("No dejar en blanco");
+                }
 
-            try {
-                journey.registerUser(paciente);
+                if (_passwordField.getText().isEmpty()) {
+                    _passwordField.setPromptText("No dejar en blanco");
+                }
 
-                stage.setScene(LoginMenuPage.scene(stage, journey));
-            } catch (Exception e) {
-                System.out.println(e);
+                if (_firstNameField.getText().isEmpty()) {
+                    _firstNameField.setPromptText("No dejar en blanco");
+                }
+
+                if (_lastNameField.getText().isEmpty()) {
+                    _lastNameField.setPromptText("No dejar en blanco");
+                }
+
+                if (_birthDatePicker.getValue() == null) {
+                    _birthDatePicker.setPromptText("No dejar en blanco");
+                }
+
+                if (_sexComboBox.getValue() == null) {
+                    _sexComboBox.setPromptText("No dejar en blanco");
+                }
+
+                if (_ocupacionField.getText().isEmpty()) {
+                    _ocupacionField.setPromptText("No dejar en blanco");
+                }
+
+                // Validación número 10 dígitos y no en blanco
+                if (_numeroContactoField.getText().isEmpty()) {
+                    _numeroContactoField.setPromptText("No dejar en blanco");
+                } else if (_numeroContactoField.getLength() != 10) {
+                    _numeroContactoField.clear();
+                    _numeroContactoField.setPromptText("Debe tener 10 dígitos");
+                }
+
+            } else {
+                String username = _usernameField.getText();
+                String password = _passwordField.getText();
+                String primerNombre = _firstNameField.getText();
+                String apellido = _lastNameField.getText();
+                LocalDate fechaNacimiento = _birthDatePicker.getValue();
+                Sexo sexo = _sexComboBox.getValue();
+                String numeroContacto = _numeroContactoField.getText();
+                String ocupacion = _ocupacionField.getText();
+
+                Paciente paciente = new Paciente(username, password, primerNombre, apellido, fechaNacimiento, sexo, numeroContacto, ocupacion);
+
+                try {
+                    journey.registerUser(paciente);
+
+                    stage.setScene(LoginMenuPage.scene(stage, journey));
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         });
 

@@ -72,17 +72,22 @@ public class IngresarInfoDiaController {
 
     public void initData(Stage stage, Estado journey) {
         continueBtn.setOnAction((event) -> {
-            var peso = Float.parseFloat(pesoField.getText());
-            var altura = Integer.parseInt(alturaField.getText());
-            var emocion = emocionChoiceBox.getValue();
-            var intensidad = intensidadChoiceBox.getValue();
-            var tiempoEjercicio = Integer.parseInt(tiempoEjercicioField.getText());
-            IngresarInfoDiaController.Data data = new IngresarInfoDiaController.Data(peso, altura, emocion, intensidad, tiempoEjercicio);
+            if (emocionChoiceBox.getValue() == null || intensidadChoiceBox.getValue() == null || tiempoEjercicioField.getText().isEmpty()) {
 
-            try {
-                stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, data, 0));
-            } catch (IOException e) {
-                System.out.println(e);
+                // label de no dejar en blanco
+            } else {
+                var peso = Float.parseFloat(pesoField.getText());
+                var altura = Integer.parseInt(alturaField.getText());
+                var emocion = emocionChoiceBox.getValue();
+                var intensidad = intensidadChoiceBox.getValue();
+                var tiempoEjercicio = Integer.parseInt(tiempoEjercicioField.getText());
+                IngresarInfoDiaController.Data data = new IngresarInfoDiaController.Data(peso, altura, emocion, intensidad, tiempoEjercicio);
+
+                try {
+                    stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, data, 0));
+                } catch (IOException e) {
+                    System.out.println(e);
+                }
             }
         });
     }
