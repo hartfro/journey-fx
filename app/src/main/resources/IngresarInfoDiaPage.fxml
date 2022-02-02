@@ -94,7 +94,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tiempoEjercicioField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tiempoEjercicioField" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ChoiceBox fx:id="intensidadChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="Ingrese su peso">
                <font>
@@ -106,8 +106,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="pesoField" GridPane.columnIndex="1" />
-            <TextField fx:id="alturaField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="pesoField" text="0" GridPane.columnIndex="1" />
+            <TextField fx:id="alturaField" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Button fx:id="continueBtn" mnemonicParsing="false" text="Continuar" />
