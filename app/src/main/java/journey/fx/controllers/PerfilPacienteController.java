@@ -54,7 +54,7 @@ public class PerfilPacienteController {
         });
 
         // Mostrar datos
-        var paciente = journey.loggedInPaciente;
+        var paciente = journey.getLoggedInPaciente();
         var ultimoInfoDia = paciente.getInfoDiaMasReciente();
         // TODO: show custom text if ultimoInfoDia doesn't exist.
         nombreLabel.setText(paciente.nombreCompleto());

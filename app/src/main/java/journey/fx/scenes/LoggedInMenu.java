@@ -30,7 +30,7 @@ public class LoggedInMenu {
         
         ingInfoDiariaBtn.setOnAction((event) -> {
             // Check if infoDia for today already exists.
-            var infoDiaNow = journey.loggedInPaciente.buscarInfoDiaPorFecha(LocalDate.now());
+            var infoDiaNow = journey.getLoggedInPaciente().buscarInfoDiaPorFecha(LocalDate.now());
 
             if (infoDiaNow != null) {
                 contextLabel.setText("Ya existe un registro para hoy.");
@@ -99,7 +99,7 @@ public class LoggedInMenu {
         title.setStyle("-fx-font-size: 42");
         mainVBox.getChildren().add(title);
 
-        Label subtitle = new Label("¡Hola, " + journey.loggedInPaciente.getPrimerNombre() + "!");
+        Label subtitle = new Label("¡Hola, " + journey.getLoggedInPaciente().getPrimerNombre() + "!");
         subtitle.setStyle("-fx-font-size: 24");
         mainVBox.getChildren().add(subtitle);
 

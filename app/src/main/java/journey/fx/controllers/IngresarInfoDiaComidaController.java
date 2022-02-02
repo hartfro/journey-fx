@@ -93,7 +93,7 @@ public class IngresarInfoDiaComidaController {
         }
 
         // Add alimentos to TilePane
-        for (var alimento : journey.bancoAlimentos) {
+        for (var alimento : journey.getBancoAlimentos()) {
             var hBox = alimentoHBox(alimento, porcionFields);
 
             alimentosVBox.getChildren().add(hBox);
@@ -166,7 +166,7 @@ public class IngresarInfoDiaComidaController {
             InfoAlimentacion infoAlimentacion = new InfoAlimentacion(data.desayuno, data.almuerzo, data.merienda);
 
             InfoDia infoDia = new InfoDia(data.peso, data.altura, data.emocion, infoEjercicio, infoAlimentacion);
-            journey.loggedInPaciente.agregarInfoDia(infoDia);
+            journey.getLoggedInPaciente().agregarInfoDia(infoDia);
 
             nextPage = LoggedInMenu.scene(stage, journey, "¡Registro creado exitosamente!");
         }

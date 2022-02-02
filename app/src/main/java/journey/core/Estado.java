@@ -5,9 +5,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Estado {
-    public ArrayList<Alimento> bancoAlimentos = new ArrayList<>();
-    public HashMap<String, Paciente> pacientes = new HashMap<>();
-    public Paciente loggedInPaciente = null;
+    private ArrayList<Alimento> bancoAlimentos = new ArrayList<>();
+    private HashMap<String, Paciente> pacientes = new HashMap<>();
+    private Paciente loggedInPaciente = null;
+
+    public ArrayList<Alimento> getBancoAlimentos() {
+        return bancoAlimentos;
+    }
+
+    public HashMap<String, Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public Paciente getLoggedInPaciente() {
+        return loggedInPaciente;
+    }
 
     public Estado(boolean debug) {
         this.setup();

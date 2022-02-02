@@ -72,7 +72,7 @@ public class VerInfoDiaController {
     Label factorActividadLabel;
 
     public void initData(Stage stage, Estado journey, InfoDia infoDia) {
-        Paciente paciente = journey.loggedInPaciente;
+        Paciente paciente = journey.getLoggedInPaciente();
 
         regresarBtn.setOnAction((event) -> {
             try {

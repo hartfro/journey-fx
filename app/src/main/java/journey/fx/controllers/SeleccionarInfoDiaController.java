@@ -48,7 +48,7 @@ public class SeleccionarInfoDiaController {
         });
 
         // Fill data.
-        Paciente paciente = journey.loggedInPaciente;
+        Paciente paciente = journey.getLoggedInPaciente();
 
         ObservableList<InfoDia> infoDiariaItems = FXCollections.observableArrayList();
         resetInfoDiariaItems(infoDiariaItems, paciente);
