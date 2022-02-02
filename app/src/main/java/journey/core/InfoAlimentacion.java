@@ -26,6 +26,7 @@ public class InfoAlimentacion {
     private HashMap<Alimento, Integer> almuerzo = new HashMap<Alimento, Integer>();
     private HashMap<Alimento, Integer> merienda = new HashMap<Alimento, Integer>();
 
+    /**Usado para crear datos quemados.*/
     public InfoAlimentacion() {}
 
     public InfoAlimentacion(HashMap<Alimento, Integer> desayuno, HashMap<Alimento, Integer> almuerzo,

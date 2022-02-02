@@ -21,6 +21,9 @@ public class Estado {
         return loggedInPaciente;
     }
 
+    /**
+     * Constructor de Estado. El argumento determina si se está en un ambiente de producción o de desarrollo.
+    */
     public Estado(boolean debug) {
         this.setup();
 
