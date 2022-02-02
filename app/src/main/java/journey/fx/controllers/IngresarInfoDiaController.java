@@ -16,6 +16,12 @@ import journey.fx.utils.KeyEventConsumers;
 
 public class IngresarInfoDiaController {
     @FXML
+    TextField pesoField;
+
+    @FXML
+    TextField alturaField;
+
+    @FXML
     ChoiceBox<Emocion> emocionChoiceBox;
 
     @FXML
@@ -37,19 +43,27 @@ public class IngresarInfoDiaController {
             intensidadChoiceBox.getItems().add(v);
         }
 
-        // Add filter to tiempoEjercicioField
+        // Add filters to fields.
         tiempoEjercicioField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
+
+        pesoField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
+
+        alturaField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
 
         // Initialize button
         continueBtn.setDefaultButton(true);
     }
 
     public static class Data {
+        float peso;
+        int altura;
         Emocion emocion;
         IntensidadEjercicio intensidadEjercicio;
         int tiempoEjercicio;
 
-        public Data(Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
+        public Data(float peso, int altura, Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
+            this.peso = peso;
+            this.altura = altura;
             this.emocion = emocion; 
             this.intensidadEjercicio = intensidad;
             this.tiempoEjercicio = tiempoEjercicio;
@@ -58,10 +72,12 @@ public class IngresarInfoDiaController {
 
     public void initData(Stage stage, Journey journey) {
         continueBtn.setOnAction((event) -> {
+            var peso = Float.parseFloat(pesoField.getText());
+            var altura = Integer.parseInt(alturaField.getText());
             var emocion = emocionChoiceBox.getValue();
             var intensidad = intensidadChoiceBox.getValue();
             var tiempoEjercicio = Integer.parseInt(tiempoEjercicioField.getText());
-            IngresarInfoDiaController.Data data = new IngresarInfoDiaController.Data(emocion, intensidad, tiempoEjercicio);
+            IngresarInfoDiaController.Data data = new IngresarInfoDiaController.Data(peso, altura, emocion, intensidad, tiempoEjercicio);
 
             try {
                 stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, data, 0));

@@ -71,29 +71,43 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.5" minWidth="10.0" prefWidth="147.5" />
         </columnConstraints>
         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" style="&#10;" text="Ingrese la emoción predominante" textAlignment="CENTER" textFill="#636363" wrapText="false">
+            <Label alignment="CENTER" style="&#10;" text="Ingrese la emoción predominante" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="2">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="emocionChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" />
-            <Label alignment="CENTER" style="&#10;" text="Ingrese la cantidad de minutos de ejercicio que hizo hoy" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="1">
+            <ChoiceBox fx:id="emocionChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" style="&#10;" text="Ingrese la cantidad de minutos de ejercicio que hizo hoy" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="3">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" style="&#10;" text="Ingrese la intensidad del ejercicio realizado" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="2">
+            <Label alignment="CENTER" style="&#10;" text="Ingrese la intensidad del ejercicio realizado" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="4">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tiempoEjercicioField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ChoiceBox fx:id="intensidadChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tiempoEjercicioField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="intensidadChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Ingrese su peso">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Ingrese su altura" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="pesoField" GridPane.columnIndex="1" />
+            <TextField fx:id="alturaField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Button fx:id="continueBtn" mnemonicParsing="false" text="Continuar" />

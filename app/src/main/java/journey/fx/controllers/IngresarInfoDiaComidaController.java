@@ -44,13 +44,13 @@ public class IngresarInfoDiaComidaController {
         HashMap<Alimento, Integer> almuerzo = new HashMap<>();
         HashMap<Alimento, Integer> merienda = new HashMap<>();
 
-        public Data(Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
-            super(emocion, intensidad, tiempoEjercicio);
+        public Data(float peso, int altura, Emocion emocion, IntensidadEjercicio intensidad, int tiempoEjercicio) {
+            super(peso, altura, emocion, intensidad, tiempoEjercicio);
         }
     }
 
     public void initData(Stage stage, Journey journey, IngresarInfoDiaController.Data oldData, int comidaIndex) {
-        IngresarInfoDiaComidaController.Data data = new IngresarInfoDiaComidaController.Data(oldData.emocion, oldData.intensidadEjercicio, oldData.tiempoEjercicio);
+        IngresarInfoDiaComidaController.Data data = new IngresarInfoDiaComidaController.Data(oldData.peso, oldData.altura, oldData.emocion, oldData.intensidadEjercicio, oldData.tiempoEjercicio);
 
         HashMap<Alimento, TextField> porcionFields = new HashMap<>();
 
@@ -146,7 +146,7 @@ public class IngresarInfoDiaComidaController {
 
             InfoAlimentacion infoAlimentacion = new InfoAlimentacion(data.desayuno, data.almuerzo, data.merienda);
 
-            InfoDia infoDia = new InfoDia(data.emocion, infoEjercicio, infoAlimentacion);
+            InfoDia infoDia = new InfoDia(data.peso, data.altura, data.emocion, infoEjercicio, infoAlimentacion);
             journey.loggedInPaciente.agregarInfoDia(infoDia);
 
             nextPage = LoggedInMenu.scene(stage, journey, "¡Registro creado exitosamente!");

@@ -79,6 +79,8 @@
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.80001220703127" minWidth="10.0" prefWidth="216.59998779296882" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints maxHeight="27.200006103515626" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="27.200006103515626" minHeight="10.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="27.200006103515626" minHeight="7.199981689453125" prefHeight="16.7999755859375" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="53.60001831054687" minHeight="8.00001220703125" prefHeight="17.39999389648437" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="81.59998779296875" minHeight="10.0" prefHeight="19.600006103515625" vgrow="SOMETIMES" />
@@ -88,37 +90,37 @@
                         <RowConstraints maxHeight="26.600012207031227" minHeight="1.6000244140624886" prefHeight="21.60002441406249" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label alignment="CENTER" style="&#10;" text="Emoción predominante:" textAlignment="CENTER" textFill="#636363" wrapText="false">
+                        <Label alignment="CENTER" style="&#10;" text="Emoción predominante:" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="2">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" style="&#10;" text="Ejercicio" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label alignment="CENTER" style="&#10;" text="Ejercicio" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" style="&#10;" text="Tiempo:" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="2">
+                        <Label alignment="CENTER" style="&#10;" text="Tiempo:" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="4">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" style="&#10;" text="Intensidad:" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="3">
+                        <Label alignment="CENTER" style="&#10;" text="Intensidad:" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="5">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" style="&#10;" text="Alimentación" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                        <Label alignment="CENTER" style="&#10;" text="Alimentación" textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="6">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" style="&#10;" text="Calorías totales: " textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="6">
+                        <Label alignment="CENTER" style="&#10;" text="Calorías totales: " textAlignment="CENTER" textFill="#636363" wrapText="false" GridPane.rowIndex="8">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TitledPane animated="false" collapsible="false" text="Desayuno" GridPane.rowIndex="5">
+                        <TitledPane animated="false" collapsible="false" text="Desayuno" GridPane.rowIndex="7">
                            <content>
                               <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
                                  <content>
@@ -127,7 +129,7 @@
                               </ScrollPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" collapsible="false" layoutX="10.0" layoutY="138.0" text="Almuerzo" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <TitledPane animated="false" collapsible="false" layoutX="10.0" layoutY="138.0" text="Almuerzo" GridPane.columnIndex="1" GridPane.rowIndex="7">
                            <content>
                               <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
                                  <content>
@@ -136,7 +138,7 @@
                               </ScrollPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" collapsible="false" layoutX="208.0" layoutY="138.0" text="Merienda" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                        <TitledPane animated="false" collapsible="false" layoutX="208.0" layoutY="138.0" text="Merienda" GridPane.columnIndex="2" GridPane.rowIndex="7">
                            <content>
                               <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
                                  <content>
@@ -145,10 +147,14 @@
                               </ScrollPane>
                            </content>
                         </TitledPane>
-                        <Label fx:id="emocionLabel" text="[emocion]" GridPane.columnIndex="1" />
-                        <Label fx:id="tiempoEjercicioLabel" text="[tiempo ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="intensidadEjercicioLabel" text="[intensidad ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label fx:id="caloriasTotalesLabel" text="[calorias totales]" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="emocionLabel" text="[emocion]" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="tiempoEjercicioLabel" text="[tiempo ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="intensidadEjercicioLabel" text="[intensidad ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="caloriasTotalesLabel" text="[calorias totales]" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label text="Peso:" />
+                        <Label text="Altura:" GridPane.rowIndex="1" />
+                        <Label fx:id="pesoLabel" text="[peso]" GridPane.columnIndex="1" />
+                        <Label fx:id="alturaLabel" text="[altura]" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

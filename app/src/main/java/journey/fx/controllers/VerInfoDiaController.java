@@ -35,6 +35,12 @@ public class VerInfoDiaController {
     Accordion meriendaAccordion;
 
     @FXML
+    Label pesoLabel;
+
+    @FXML
+    Label alturaLabel;
+
+    @FXML
     Label emocionLabel;
 
     @FXML
@@ -67,6 +73,8 @@ public class VerInfoDiaController {
 
         titleLabel.setText("Registro del día: " + infoDia.getFecha().format(Constantes.DATE_FORMATTER));
 
+        pesoLabel.setText("" + infoDia.getPeso());
+        alturaLabel.setText("" + infoDia.getAltura());
         emocionLabel.setText(infoDia.getEmocion().toString());
         tiempoEjercicioLabel.setText(Integer.toString(ejercicio.getTiempo()));
         intensidadEjercicioLabel.setText(ejercicio.getIntensidad().toString());
