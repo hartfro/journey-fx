@@ -19,10 +19,7 @@ import journey.core.Sexo;
 import journey.fx.components.ControlWithLabel;
 import journey.fx.utils.KeyEventConsumers;
 
-// Se añade: util
 import javafx.util.Callback;
-
-//import javax.security.auth.callback.Callback;
 
 public class RegisterPage {
     private static Node registerForm(Stage stage, Estado journey) {
@@ -103,70 +100,83 @@ public class RegisterPage {
 
         Button submitButton = new Button("Registrarse");
         submitButton.setOnAction((event) -> {
-            if (_usernameField.getText().isEmpty() || _passwordField.getText().isEmpty() || _firstNameField.getText().isEmpty()
-                    || _lastNameField.getText().isEmpty() || _birthDatePicker.getValue() == null || _sexComboBox.getValue() == null
-                    || _numeroContactoField.getText().isEmpty() || _ocupacionField.getText().isEmpty() || _numeroContactoField.getLength() != 10)  {
+            String username = _usernameField.getText();
+            String password = _passwordField.getText();
+            String primerNombre = _firstNameField.getText();
+            String apellido = _lastNameField.getText();
+            LocalDate fechaNacimiento = _birthDatePicker.getValue();
+            Sexo sexo = _sexComboBox.getValue();
+            String numeroContacto = _numeroContactoField.getText();
+            String ocupacion = _ocupacionField.getText();
 
-                // Validaciones en blanco
-                if (_usernameField.getText().isEmpty()) {
-                    _usernameField.setPromptText("No dejar en blanco");
-                }
+            boolean shouldContinue = true;
 
-                if (_passwordField.getText().isEmpty()) {
-                    _passwordField.setPromptText("No dejar en blanco");
-                }
+            // Validaciones en blanco
+            if (username.isEmpty()) {
+                _usernameField.setPromptText("No dejar en blanco");
+                shouldContinue = false;
+            }
 
-                if (_firstNameField.getText().isEmpty()) {
-                    _firstNameField.setPromptText("No dejar en blanco");
-                }
+            if (password.isEmpty()) {
+                _passwordField.setPromptText("No dejar en blanco");
+                shouldContinue = false;
+            }
 
-                if (_lastNameField.getText().isEmpty()) {
-                    _lastNameField.setPromptText("No dejar en blanco");
-                }
+            if (primerNombre.isEmpty()) {
+                _firstNameField.setPromptText("No dejar en blanco");
+                shouldContinue = false;
+            }
 
-                if (_birthDatePicker.getValue() == null) {
-                    _birthDatePicker.setPromptText("No dejar en blanco");
-                }
+            if (apellido.isEmpty()) {
+                _lastNameField.setPromptText("No dejar en blanco");
+                shouldContinue = false;
+            }
 
-                if (_sexComboBox.getValue() == null) {
-                    _sexComboBox.setPromptText("No dejar en blanco");
-                }
+            if (fechaNacimiento == null) {
+                _birthDatePicker.setPromptText("No dejar en blanco");
+                shouldContinue = false;
+            }
 
-                if (_ocupacionField.getText().isEmpty()) {
-                    _ocupacionField.setPromptText("No dejar en blanco");
-                }
+            if (sexo == null) {
+                _sexComboBox.setPromptText("No dejar en blanco");
+                shouldContinue = false;
+            }
 
-                // Validación número 10 dígitos y no en blanco
-                if (_numeroContactoField.getText().isEmpty()) {
-                    _numeroContactoField.setPromptText("No dejar en blanco");
-                } else if (_numeroContactoField.getLength() != 10) {
-                    _numeroContactoField.clear();
-                    _numeroContactoField.setPromptText("Debe tener 10 dígitos");
-                }
+            if (ocupacion.isEmpty()) {
+                _ocupacionField.setPromptText("No dejar en blanco");
+                shouldContinue = false;
+            }
 
-            } else {
-                String username = _usernameField.getText();
-                String password = _passwordField.getText();
-                String primerNombre = _firstNameField.getText();
-                String apellido = _lastNameField.getText();
-                LocalDate fechaNacimiento = _birthDatePicker.getValue();
-                Sexo sexo = _sexComboBox.getValue();
-                String numeroContacto = _numeroContactoField.getText();
-                String ocupacion = _ocupacionField.getText();
+            // Validación número 10 dígitos y no en blanco
+            if (numeroContacto.isEmpty()) {
+                _numeroContactoField.setPromptText("No dejar en blanco");
+                shouldContinue = false;
+            } else if (numeroContacto.length() != 10) {
+                _numeroContactoField.clear();
+                _numeroContactoField.setPromptText("Debe tener 10 dígitos");
+                shouldContinue = false;
+            } else if (numeroContacto.charAt(0) != 0 || numeroContacto.charAt(1) != 9) {
+                _numeroContactoField.clear();
+                _numeroContactoField.setPromptText("Debe comenzar con 09");
+                shouldContinue = false;
+            }
 
-                Paciente paciente = new Paciente(username, password, primerNombre, apellido, fechaNacimiento, sexo, numeroContacto, ocupacion);
+            if (!shouldContinue)
+                return;
 
-                try {
-                    journey.registerUser(paciente);
+            Paciente paciente = new Paciente(username, password, primerNombre, apellido, fechaNacimiento, sexo,
+                    numeroContacto, ocupacion);
 
-                    stage.setScene(LoginMenuPage.scene(stage, journey));
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
+            try {
+                journey.registerUser(paciente);
+
+                stage.setScene(LoginMenuPage.scene(stage, journey));
+            } catch (Exception e) {
+                System.out.println(e);
             }
         });
 
-		// Return Button
+        // Return Button
         Button returnButton = new Button("Regresar");
         returnButton.setOnAction((event) -> {
             stage.setScene(LoginMenuPage.scene(stage, journey));
