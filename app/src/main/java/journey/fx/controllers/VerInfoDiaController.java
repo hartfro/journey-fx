@@ -1,5 +1,6 @@
 package journey.fx.controllers;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import javafx.fxml.FXML;
@@ -8,12 +9,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import journey.core.Alimento;
 import journey.core.Constantes;
 import journey.core.InfoAlimentacion;
 import journey.core.InfoDia;
 import journey.core.InfoEjercicio;
+import journey.core.Journey;
 import journey.core.Paciente;
+import journey.fx.scenes.SeleccionarInfoDiaPage;
 
 public class VerInfoDiaController {
     @FXML
@@ -67,7 +71,17 @@ public class VerInfoDiaController {
     @FXML
     Label factorActividadLabel;
 
-    public void initData(InfoDia infoDia, Paciente paciente) {
+    public void initData(Stage stage, Journey journey, InfoDia infoDia) {
+        Paciente paciente = journey.loggedInPaciente;
+
+        regresarBtn.setOnAction((event) -> {
+            try {
+                stage.setScene(SeleccionarInfoDiaPage.scene(stage, journey));
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        });
+
         InfoEjercicio ejercicio = infoDia.getInfoEjercicio();
         InfoAlimentacion alimentacion = infoDia.getInfoAlimentacion();
 

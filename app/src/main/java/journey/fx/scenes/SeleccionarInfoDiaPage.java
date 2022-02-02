@@ -26,7 +26,7 @@ public class SeleccionarInfoDiaPage {
         Node page = pageLoader.load();
 
         SeleccionarInfoDiaController pageController = pageLoader.getController();
-        pageController.initData(stage, journey.loggedInPaciente);
+        pageController.initData(stage, journey);;
 
         root.getChildren().add(page);
 

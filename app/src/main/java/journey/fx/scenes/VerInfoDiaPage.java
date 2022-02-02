@@ -11,11 +11,11 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.core.InfoDia;
-import journey.core.Paciente;
+import journey.core.Journey;
 import journey.fx.controllers.VerInfoDiaController;
 
 public class VerInfoDiaPage {
-    public static Scene scene(Stage stage, InfoDia infoDia, Paciente paciente) throws IOException {
+    public static Scene scene(Stage stage, Journey journey, InfoDia infoDia) throws IOException {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 
@@ -27,7 +27,7 @@ public class VerInfoDiaPage {
         Node page = pageLoader.load();
 
         VerInfoDiaController pageController = pageLoader.getController();
-        pageController.initData(infoDia, paciente);
+        pageController.initData(stage, journey, infoDia);;
 
         root.getChildren().add(page);
 

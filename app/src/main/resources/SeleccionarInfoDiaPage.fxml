@@ -15,7 +15,6 @@
    <children>
       <StackPane alignment="CENTER_LEFT">
          <children>
-            <Button mnemonicParsing="false" text="Regresar" />
             <HBox alignment="CENTER">
                <children>
                   <Label text="Seleccionar registro diario">
@@ -25,6 +24,7 @@
                   </Label>
                </children>
             </HBox>
+            <Button fx:id="regresarBtn" mnemonicParsing="false" text="Regresar" />
          </children>
       </StackPane>
       <HBox alignment="CENTER_LEFT" spacing="10.0">
