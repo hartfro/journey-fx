@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import journey.core.Journey;
+import journey.core.Estado;
 import journey.fx.scenes.LoginMenuPage;
 
 public class PerfilPacienteController {
@@ -47,7 +47,7 @@ public class PerfilPacienteController {
     @FXML
     Button regresarBtn;
 
-    public void initData(Stage stage, Journey journey) {
+    public void initData(Stage stage, Estado journey) {
         // regresarBtn
         regresarBtn.setOnAction((e) -> {
             stage.setScene(LoginMenuPage.scene(stage, journey));

@@ -16,12 +16,12 @@ import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
-import journey.core.Journey;
+import journey.core.Estado;
 import journey.fx.Utils;
 import journey.fx.components.MenuButton;
 
 public class LoggedInMenu {
-    private static Node menu(Stage stage, Journey journey, Label contextLabel) {
+    private static Node menu(Stage stage, Estado journey, Label contextLabel) {
         HBox menuHBox = new HBox(20);
         menuHBox.setAlignment(Pos.CENTER);
 
@@ -77,11 +77,11 @@ public class LoggedInMenu {
         return menuHBox;
     }
 
-    public static Scene scene(Stage stage, Journey journey) {
+    public static Scene scene(Stage stage, Estado journey) {
         return scene(stage, journey, "¡Bienvenido/a!");
     }
 
-    public static Scene scene(Stage stage, Journey journey, String contextMsg) {
+    public static Scene scene(Stage stage, Estado journey, String contextMsg) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 

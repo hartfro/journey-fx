@@ -19,7 +19,7 @@ import journey.core.InfoAlimentacion;
 import journey.core.InfoDia;
 import journey.core.InfoEjercicio;
 import journey.core.IntensidadEjercicio;
-import journey.core.Journey;
+import journey.core.Estado;
 import journey.fx.scenes.IngresarInfoDiaComidaPage;
 import journey.fx.scenes.LoggedInMenu;
 import journey.fx.utils.KeyEventConsumers;
@@ -49,7 +49,7 @@ public class IngresarInfoDiaComidaController {
         }
     }
 
-    public void initData(Stage stage, Journey journey, IngresarInfoDiaController.Data oldData, int comidaIndex) {
+    public void initData(Stage stage, Estado journey, IngresarInfoDiaController.Data oldData, int comidaIndex) {
         IngresarInfoDiaComidaController.Data data = new IngresarInfoDiaComidaController.Data(oldData.peso, oldData.altura, oldData.emocion, oldData.intensidadEjercicio, oldData.tiempoEjercicio);
 
         HashMap<Alimento, TextField> porcionFields = new HashMap<>();
@@ -57,7 +57,7 @@ public class IngresarInfoDiaComidaController {
         this.initData(stage, journey, data, porcionFields, comidaIndex);
     }
 
-    public void initData(Stage stage, Journey journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) {
+    public void initData(Stage stage, Estado journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) {
         if (comidaIndex < 0 || comidaIndex > 2)
             throw new IllegalArgumentException("comidaIndex must be an integer from 0 to 2.");
 
@@ -134,7 +134,7 @@ public class IngresarInfoDiaComidaController {
         return hBox;
     }
 
-    private Scene getNextPage(Stage stage, Journey journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) throws IOException {
+    private Scene getNextPage(Stage stage, Estado journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) throws IOException {
         Scene nextPage = null;
 
         // Set next page.

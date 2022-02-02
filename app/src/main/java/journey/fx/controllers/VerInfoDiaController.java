@@ -15,7 +15,7 @@ import journey.core.Constantes;
 import journey.core.InfoAlimentacion;
 import journey.core.InfoDia;
 import journey.core.InfoEjercicio;
-import journey.core.Journey;
+import journey.core.Estado;
 import journey.core.Paciente;
 import journey.fx.scenes.SeleccionarInfoDiaPage;
 
@@ -71,7 +71,7 @@ public class VerInfoDiaController {
     @FXML
     Label factorActividadLabel;
 
-    public void initData(Stage stage, Journey journey, InfoDia infoDia) {
+    public void initData(Stage stage, Estado journey, InfoDia infoDia) {
         Paciente paciente = journey.loggedInPaciente;
 
         regresarBtn.setOnAction((event) -> {

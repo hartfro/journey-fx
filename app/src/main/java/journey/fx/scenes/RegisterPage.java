@@ -19,14 +19,14 @@ import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
-import journey.core.Journey;
+import journey.core.Estado;
 import journey.core.Paciente;
 import journey.core.Sexo;
 import journey.fx.components.ControlWithLabel;
 import journey.fx.utils.KeyEventConsumers;
 
 public class RegisterPage {
-    private static Node registerForm(Stage stage, Journey journey) {
+    private static Node registerForm(Stage stage, Estado journey) {
         VBox formVBox = new VBox(20);
 
         double fieldWidth = 320;
@@ -121,7 +121,7 @@ public class RegisterPage {
         return formVBox;
     }
 
-    public static Scene create(Stage stage, Journey journey) {
+    public static Scene create(Stage stage, Estado journey) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 

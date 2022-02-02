@@ -10,7 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import journey.core.Emocion;
 import journey.core.IntensidadEjercicio;
-import journey.core.Journey;
+import journey.core.Estado;
 import journey.fx.scenes.IngresarInfoDiaComidaPage;
 import journey.fx.utils.KeyEventConsumers;
 
@@ -70,7 +70,7 @@ public class IngresarInfoDiaController {
         }
     }
 
-    public void initData(Stage stage, Journey journey) {
+    public void initData(Stage stage, Estado journey) {
         continueBtn.setOnAction((event) -> {
             var peso = Float.parseFloat(pesoField.getText());
             var altura = Integer.parseInt(alturaField.getText());

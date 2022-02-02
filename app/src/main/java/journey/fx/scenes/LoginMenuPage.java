@@ -15,12 +15,12 @@ import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
-import journey.core.Journey;
+import journey.core.Estado;
 import journey.fx.components.ControlWithLabel;
 import journey.fx.utils.KeyEventConsumers;
 
 public class LoginMenuPage {
-    public static Scene scene(Stage stage, Journey journey) {
+    public static Scene scene(Stage stage, Estado journey) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 

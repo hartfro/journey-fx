@@ -13,12 +13,12 @@ import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.JMetroStyleClass;
 import jfxtras.styles.jmetro.Style;
 import journey.core.Alimento;
-import journey.core.Journey;
+import journey.core.Estado;
 import journey.fx.controllers.IngresarInfoDiaComidaController;
 import journey.fx.controllers.IngresarInfoDiaController;
 
 public class IngresarInfoDiaComidaPage {
-    public static Scene scene(Stage stage, Journey journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) throws IOException {
+    public static Scene scene(Stage stage, Estado journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) throws IOException {
         var pageLoader = new FXMLLoader(ClassLoader.getSystemResource("IngresarInfoDiaComidaPage.fxml"));
 
         Node page = pageLoader.load();
@@ -28,7 +28,7 @@ public class IngresarInfoDiaComidaPage {
         return _scene(stage, page);
     }
 
-    public static Scene scene(Stage stage, Journey journey, IngresarInfoDiaController.Data data, int comidaIndex) throws IOException {
+    public static Scene scene(Stage stage, Estado journey, IngresarInfoDiaController.Data data, int comidaIndex) throws IOException {
         var pageLoader = new FXMLLoader(ClassLoader.getSystemResource("IngresarInfoDiaComidaPage.fxml"));
 
         Node page = pageLoader.load();

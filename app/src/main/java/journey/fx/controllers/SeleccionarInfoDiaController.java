@@ -10,7 +10,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import journey.core.InfoDia;
-import journey.core.Journey;
+import journey.core.Estado;
 import journey.core.Paciente;
 import journey.fx.scenes.LoggedInMenu;
 import journey.fx.scenes.VerInfoDiaPage;
@@ -38,7 +38,7 @@ public class SeleccionarInfoDiaController {
         infoDiariaListView.refresh();
     }
 
-    public void initData(Stage stage, Journey journey) {
+    public void initData(Stage stage, Estado journey) {
         regresarBtn.setOnAction((event) -> {
             stage.setScene(LoggedInMenu.scene(stage, journey));
         });
