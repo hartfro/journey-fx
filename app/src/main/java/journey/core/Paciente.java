@@ -168,7 +168,12 @@ public class Paciente {
      * Toma en cuenta el peso, la altura, el sexo, la edad y el factor de actividad.
      * @return media de cantidad de calorías diarias ideales
      */
-    public float idealCaloriasDiariasMedia(InfoDia infoDia) {
+    public float idealCaloriasDiariasMedia(LocalDate fechaInfoDia) throws Exception {
+        var infoDia = this.buscarInfoDiaPorFecha(fechaInfoDia);
+
+        if (infoDia == null)
+            throw new Exception("No hay un registro para la fecha dada.");
+
         var peso = infoDia.getPeso();
         var altura = infoDia.getAltura();
 
@@ -178,8 +183,12 @@ public class Paciente {
         return (655 + (9.6f * peso)) + ((1.8f * altura) - (4.7f * calcularEdad())) * calcularFactorActividad();
     }
 
-    public float idealCaloriasDiariasMedia() {
-        return idealCaloriasDiariasMedia(this.getInfoDiaMasReciente());
+    public float idealCaloriasDiariasMedia() throws Exception {
+        try {
+            return idealCaloriasDiariasMedia(this.getInfoDiaMasReciente().getFecha());
+        } catch (Exception e) {
+            throw new Exception("El usuario no tiene registros diarios.");
+        }
     }
 
     /**
@@ -187,11 +196,11 @@ public class Paciente {
      * Se basa en el método idealCaloriasDiariasMedia() y le resta 100.
      * @return mínimo de cantidad de calorías diarias ideales
      */
-    public float idealCaloriasDiariasMinimo(InfoDia infoDia) {
-        return idealCaloriasDiariasMedia(infoDia) - ERROR_CALORIAS_RECOM;
+    public float idealCaloriasDiariasMinimo(LocalDate fechaInfoDia) throws Exception {
+        return idealCaloriasDiariasMedia(fechaInfoDia) - ERROR_CALORIAS_RECOM;
     }
 
-    public float idealCaloriasDiariasMinimo() {
+    public float idealCaloriasDiariasMinimo() throws Exception {
         return idealCaloriasDiariasMedia() - ERROR_CALORIAS_RECOM;
     }
 
@@ -200,10 +209,11 @@ public class Paciente {
      * Se basa en el método idealCaloriasDiariasMedia() y le suma 100
      * @return máximo de cantidad de calorías diarias ideales
      */
-    public float idealCaloriasDiariasMaximo(InfoDia infoDia) {
-        return this.idealCaloriasDiariasMedia(infoDia) + ERROR_CALORIAS_RECOM;
+    public float idealCaloriasDiariasMaximo(LocalDate fechaInfoDia) throws Exception {
+        return this.idealCaloriasDiariasMedia(fechaInfoDia) + ERROR_CALORIAS_RECOM;
     }
-    public float idealCaloriasDiariasMaximo() {
+
+    public float idealCaloriasDiariasMaximo() throws Exception {
         return this.idealCaloriasDiariasMedia() + ERROR_CALORIAS_RECOM;
     }
 
@@ -211,15 +221,15 @@ public class Paciente {
      * Método que devuelve el rango de consumo de calorías diarias ideales, une el mínimo y máximo de consumo.
      * @return cadena de caracteres con el rango de consumo de calorías diarias ideales
      */
-    public String rangoIdealCalorias(InfoDia infoDia) {
-        return "[" + idealCaloriasDiariasMinimo(infoDia) + ", " + idealCaloriasDiariasMaximo(infoDia) + "]";
+    public String rangoIdealCalorias(LocalDate fechaInfoDia) throws Exception {
+        return "[" + idealCaloriasDiariasMinimo(fechaInfoDia) + ", " + idealCaloriasDiariasMaximo(fechaInfoDia) + "]";
     }
 
     /**
      * Método que devuelve el rango de consumo de calorías diarias ideales con la información del día (última añadida)
      * @return cadena de caracteres con el rango de consumo de calorías diarias ideales
      */
-    public String rangoIdealCalorias() {
+    public String rangoIdealCalorias() throws Exception {
         return "[" + idealCaloriasDiariasMinimo() + ", " + idealCaloriasDiariasMaximo() + "]";
     }
 
@@ -253,6 +263,8 @@ public class Paciente {
      * @return infoDia más reciente
      */
     public InfoDia getInfoDiaMasReciente() {
+        if (infoDiaria.isEmpty()) return null;
+
         return this.infoDiaria.last();
     }
 

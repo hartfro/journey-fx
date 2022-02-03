@@ -27,7 +27,7 @@ public class VerInfoDiaPage {
         Node page = pageLoader.load();
 
         VerInfoDiaController pageController = pageLoader.getController();
-        pageController.initData(stage, journey, infoDia);;
+        pageController.initData(stage, journey, infoDia.getFecha());
 
         root.getChildren().add(page);
 

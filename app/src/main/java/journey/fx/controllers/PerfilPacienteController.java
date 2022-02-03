@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import journey.core.Constantes;
 import journey.core.Estado;
 import journey.fx.scenes.LoggedInMenu;
-import journey.fx.scenes.LoginMenuPage;
 
 public class PerfilPacienteController {
     @FXML
@@ -58,18 +57,36 @@ public class PerfilPacienteController {
         // Mostrar datos
         var paciente = journey.getLoggedInPaciente();
         var ultimoInfoDia = paciente.getInfoDiaMasReciente();
+
         // TODO: show custom text if ultimoInfoDia doesn't exist.
         nombreLabel.setText(paciente.nombreCompleto());
         fechaNacimientoLabel.setText(paciente.getFechaNacimiento().format(Constantes.DATE_FORMATTER));
         edadLabel.setText(Integer.toString(paciente.calcularEdad()));
         sexoLabel.setText(paciente.getSexo().toString());
-        pesoLabel.setText(Float.toString(ultimoInfoDia.getPeso()));
-        alturaLabel.setText(Integer.toString(ultimoInfoDia.getAltura()));
-        imcLabel.setText(Float.toString(ultimoInfoDia.calcularImc()));
+
+        if (ultimoInfoDia != null) {
+            pesoLabel.setText(Float.toString(ultimoInfoDia.getPeso()));
+            alturaLabel.setText(Integer.toString(ultimoInfoDia.getAltura()));
+            imcLabel.setText(Float.toString(ultimoInfoDia.calcularImc()));
+            diagnosticoIMCLabel.setText(ultimoInfoDia.diagnosticoIMC());
+        } else {
+            String error = "No hay suficiente información.";
+
+            pesoLabel.setText(error);
+            alturaLabel.setText(error);
+            imcLabel.setText(error);
+            diagnosticoIMCLabel.setText(error);
+        }
+
         numeroContactoLabel.setText(paciente.getNumeroContacto());
         ocupacionLabel.setText(paciente.getOcupacion());
-        diagnosticoIMCLabel.setText(ultimoInfoDia.diagnosticoIMC());
-        caloriasRecomLabel.setText(paciente.rangoIdealCalorias());
+
+        try {
+            caloriasRecomLabel.setText(paciente.rangoIdealCalorias());
+        } catch (Exception e) {
+            caloriasRecomLabel.setText("No hay suficiente información.");
+        }
+
         factorActividadLabel.setText(Float.toString(paciente.calcularFactorActividad()));
     }
 }

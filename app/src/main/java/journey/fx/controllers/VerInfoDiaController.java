@@ -1,6 +1,7 @@
 package journey.fx.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 import javafx.fxml.FXML;
@@ -13,7 +14,6 @@ import javafx.stage.Stage;
 import journey.core.Alimento;
 import journey.core.Constantes;
 import journey.core.InfoAlimentacion;
-import journey.core.InfoDia;
 import journey.core.InfoEjercicio;
 import journey.core.Estado;
 import journey.core.Paciente;
@@ -72,8 +72,9 @@ public class VerInfoDiaController {
     Label factorActividadLabel;
 
     // TODO: pasar fecha en vez de infoDia.
-    public void initData(Stage stage, Estado journey, InfoDia infoDia) {
+    public void initData(Stage stage, Estado journey, LocalDate fechaInfoDia) {
         Paciente paciente = journey.getLoggedInPaciente();
+        var infoDia = paciente.buscarInfoDiaPorFecha(fechaInfoDia);
 
         regresarBtn.setOnAction((event) -> {
             try {
@@ -102,17 +103,25 @@ public class VerInfoDiaController {
         populateComidaAccordion(meriendaAccordion, alimentacion.getMerienda());
 
         // Diagnósticos
-        var minRecom = paciente.idealCaloriasDiariasMinimo(infoDia);
-        var maxRecom = paciente.idealCaloriasDiariasMaximo(infoDia);
-        var rango = paciente.rangoIdealCalorias(infoDia);
+        try {
+            var minRecom = paciente.idealCaloriasDiariasMinimo(fechaInfoDia);
+            var maxRecom = paciente.idealCaloriasDiariasMaximo(fechaInfoDia);
 
-        diagAlimentacionLabel.setText(alimentacion.diagnostico(minRecom, maxRecom));;
+            diagAlimentacionLabel.setText(alimentacion.diagnostico(minRecom, maxRecom));;
+        } catch (Exception e) {
+            diagAlimentacionLabel.setText("No hay suficiente información.");
+        }
 
         diagEjercicioLabel.setText(ejercicio.diagnostico());;
 
         diagIMCLabel.setText(infoDia.diagnosticoIMC());
 
-        calRecomLabel.setText(rango);
+        try {
+            var rango = paciente.rangoIdealCalorias(fechaInfoDia);
+            calRecomLabel.setText(rango);
+        } catch (Exception e) {
+            calRecomLabel.setText("No hay suficiente información.");
+        }
 
         // TODO: calcular de acuerdo a infoDia.
         factorActividadLabel.setText("" + paciente.calcularFactorActividad());
