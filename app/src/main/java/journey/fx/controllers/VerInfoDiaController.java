@@ -93,7 +93,12 @@ public class VerInfoDiaController {
         alturaLabel.setText("" + infoDia.getAltura());
         emocionLabel.setText(infoDia.getEmocion().toString());
         tiempoEjercicioLabel.setText(Integer.toString(ejercicio.getTiempo()));
-        intensidadEjercicioLabel.setText(ejercicio.getIntensidad().toString());
+
+        if (ejercicio.getIntensidad() != null) {
+            intensidadEjercicioLabel.setText(ejercicio.getIntensidad().toString());
+        } else {
+            intensidadEjercicioLabel.setText("No se hizo ejercicio.");
+        }
 
         caloriasTotalesLabel.setText(Float.toString(alimentacion.caloriasTotales()));
 

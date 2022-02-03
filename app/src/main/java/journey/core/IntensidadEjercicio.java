@@ -5,7 +5,6 @@ package journey.core;
  * @version 30/01/2022
  */
 public enum IntensidadEjercicio {
-    NULO,
     LEVE,
     MODERADO,
     FUERTE

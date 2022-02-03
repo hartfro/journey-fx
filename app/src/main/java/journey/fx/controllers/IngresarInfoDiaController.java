@@ -48,7 +48,16 @@ public class IngresarInfoDiaController {
 		}
 
 		// Add filters to fields.
-		tiempoEjercicioField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
+		tiempoEjercicioField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> {
+			KeyEventConsumers.consumeNonDigits(e);
+
+			if (tiempoEjercicioField.getText().isEmpty() && e.getCharacter().charAt(0) == '0') {
+				intensidadChoiceBox.setValue(null);
+				intensidadChoiceBox.setDisable(true);
+			} else {
+				intensidadChoiceBox.setDisable(false);
+			}
+		});
 
 		pesoField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
 
@@ -80,45 +89,55 @@ public class IngresarInfoDiaController {
 		});
 
 		continueBtn.setOnAction((event) -> {
-			if (emocionChoiceBox.getValue() == null || intensidadChoiceBox.getValue() == null
-					|| tiempoEjercicioField.getText().isEmpty()
-					|| alturaField.getText().isEmpty() || pesoField.getText().isEmpty()
-					|| alturaField.getText().equals("0") || pesoField.getText().equals("0")) {
-				if (tiempoEjercicioField.getText().isEmpty()) {
-					tiempoEjercicioField.setPromptText("No dejar en blanco");
-				}
+			boolean shouldContinue = true;
 
-				if (alturaField.getText().isEmpty()) {
-					alturaField.setPromptText("No dejar en blanco");
-				}
+			if (tiempoEjercicioField.getText().isEmpty()) {
+				tiempoEjercicioField.setPromptText("No dejar en blanco");
+				shouldContinue = false;
+			}
 
-				if (pesoField.getText().isEmpty()) {
-					pesoField.setPromptText("No dejar en blanco");
-				}
+			if (alturaField.getText().isEmpty()) {
+				alturaField.setPromptText("No dejar en blanco");
+				shouldContinue = false;
+			}
 
-				if (alturaField.getText().equals("0")) {
-					alturaField.clear();
-					alturaField.setPromptText("No puede ser 0");
-				}
+			if (pesoField.getText().isEmpty()) {
+				pesoField.setPromptText("No dejar en blanco");
+				shouldContinue = false;
+			}
 
-				if (pesoField.getText().equals("0")) {
-					pesoField.clear();
-					pesoField.setPromptText("No puede ser 0");
-				}
-			} else {
-				var peso = Float.parseFloat(pesoField.getText());
-				var altura = Integer.parseInt(alturaField.getText());
-				var emocion = emocionChoiceBox.getValue();
-				var intensidad = intensidadChoiceBox.getValue();
-				var tiempoEjercicio = Integer.parseInt(tiempoEjercicioField.getText());
-				IngresarInfoDiaController.Data data = new IngresarInfoDiaController.Data(peso, altura, emocion,
-						intensidad, tiempoEjercicio);
+			if (alturaField.getText().equals("0")) {
+				alturaField.clear();
+				alturaField.setPromptText("No puede ser 0");
+				shouldContinue = false;
+			}
 
-				try {
-					stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, data, 0));
-				} catch (IOException e) {
-					System.out.println(e);
-				}
+			if (pesoField.getText().equals("0")) {
+				pesoField.clear();
+				pesoField.setPromptText("No puede ser 0");
+				shouldContinue = false;
+			}
+
+			if (emocionChoiceBox.getValue() == null
+					|| (intensidadChoiceBox.getValue() == null && !tiempoEjercicioField.getText().equals("0"))) {
+				shouldContinue = false;
+			}
+
+			if (!shouldContinue)
+				return;
+
+			var peso = Float.parseFloat(pesoField.getText());
+			var altura = Integer.parseInt(alturaField.getText());
+			var emocion = emocionChoiceBox.getValue();
+			var intensidad = intensidadChoiceBox.getValue();
+			var tiempoEjercicio = Integer.parseInt(tiempoEjercicioField.getText());
+			IngresarInfoDiaController.Data data = new IngresarInfoDiaController.Data(peso, altura, emocion, intensidad,
+					tiempoEjercicio);
+
+			try {
+				stage.setScene(IngresarInfoDiaComidaPage.scene(stage, journey, data, 0));
+			} catch (IOException e) {
+				System.out.println(e);
 			}
 		});
 	}
