@@ -71,6 +71,7 @@ public class VerInfoDiaController {
     @FXML
     Label factorActividadLabel;
 
+    // TODO: pasar fecha en vez de infoDia.
     public void initData(Stage stage, Estado journey, InfoDia infoDia) {
         Paciente paciente = journey.getLoggedInPaciente();
 

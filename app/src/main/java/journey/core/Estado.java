@@ -63,7 +63,7 @@ public class Estado {
 
     public void testSetup() {
         Paciente testPaciente = new Paciente("admin", "admin", "Anthony", "Suárez", LocalDate.parse("2003-12-20"),
-                Sexo.MASCULINO, "102938", "Estudiante");
+                Sexo.MASCULINO, "0923475926", "Estudiante");
 
         InfoAlimentacion testAlimentacion = new InfoAlimentacion();
         testAlimentacion.getDesayuno().put(bancoAlimentos.get(0), 10);
@@ -83,5 +83,49 @@ public class Estado {
                         testAlimentacion));
 
         this.pacientes.put(testPaciente.getUsername(), testPaciente);
+
+        Paciente paciente2 = new Paciente("juan", "juan", "Juan", "Cevallos", LocalDate.parse("2002-11-22"),
+                Sexo.MASCULINO, "0987044325", "Empleado");
+
+        InfoAlimentacion alimentacion2 = new InfoAlimentacion();
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(0), 7);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(1),4);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(2), 5);
+
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(0), 6);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(1), 7);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(2), 4);
+
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(0), 3);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(1), 5);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(2), 3);
+
+        paciente2.infoDiaria.add(
+                new InfoDia(LocalDate.of(2022, 1, 1), 45, 159, Emocion.ABURRIDO, new InfoEjercicio(15, IntensidadEjercicio.LEVE),
+                        alimentacion2));
+
+        this.pacientes.put(paciente2.getUsername(), paciente2);
+
+        Paciente paciente3 = new Paciente("marco", "marco", "Marco", "Rojas", LocalDate.of(2003, 10, 4),
+                Sexo.MASCULINO, "0983028493", "Estudiante");
+
+        InfoAlimentacion alimentacion3 = new InfoAlimentacion();
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(0), 5);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(1), 4);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(2), 5);
+
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(0), 6);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(1), 2);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(2), 4);
+
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(0), 3);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(1), 5);
+        testAlimentacion.getDesayuno().put(bancoAlimentos.get(2), 1);
+
+        paciente3.infoDiaria.add(
+                new InfoDia(LocalDate.of(2020, 10, 5), 49, 162, Emocion.FELIZ, new InfoEjercicio(18, IntensidadEjercicio.FUERTE),
+                        alimentacion3));
+
+        this.pacientes.put(paciente3.getUsername(), paciente3);
     }
 }

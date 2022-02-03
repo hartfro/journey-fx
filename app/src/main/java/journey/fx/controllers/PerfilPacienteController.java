@@ -4,7 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import journey.core.Constantes;
 import journey.core.Estado;
+import journey.fx.scenes.LoggedInMenu;
 import journey.fx.scenes.LoginMenuPage;
 
 public class PerfilPacienteController {
@@ -50,7 +52,7 @@ public class PerfilPacienteController {
     public void initData(Stage stage, Estado journey) {
         // regresarBtn
         regresarBtn.setOnAction((e) -> {
-            stage.setScene(LoginMenuPage.scene(stage, journey));
+            stage.setScene(LoggedInMenu.scene(stage, journey));
         });
 
         // Mostrar datos
@@ -58,7 +60,7 @@ public class PerfilPacienteController {
         var ultimoInfoDia = paciente.getInfoDiaMasReciente();
         // TODO: show custom text if ultimoInfoDia doesn't exist.
         nombreLabel.setText(paciente.nombreCompleto());
-        fechaNacimientoLabel.setText(paciente.getFechaNacimiento().toString());
+        fechaNacimientoLabel.setText(paciente.getFechaNacimiento().format(Constantes.DATE_FORMATTER));
         edadLabel.setText(Integer.toString(paciente.calcularEdad()));
         sexoLabel.setText(paciente.getSexo().toString());
         pesoLabel.setText(Float.toString(ultimoInfoDia.getPeso()));

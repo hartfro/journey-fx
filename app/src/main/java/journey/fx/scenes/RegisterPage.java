@@ -160,7 +160,7 @@ public class RegisterPage {
                 _numeroContactoField.clear();
                 _numeroContactoField.setPromptText("Debe tener 10 dígitos");
                 shouldContinue = false;
-            } else if (numeroContacto.charAt(0) != 0 || numeroContacto.charAt(1) != 9) {
+            } else if (numeroContacto.charAt(0) != '0' || numeroContacto.charAt(1) != '9') {
                 _numeroContactoField.clear();
                 _numeroContactoField.setPromptText("Debe comenzar con 09");
                 shouldContinue = false;
