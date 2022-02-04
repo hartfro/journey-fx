@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import journey.core.Emocion;
@@ -48,15 +49,22 @@ public class IngresarInfoDiaController {
 		}
 
 		// Add filters to fields.
-		tiempoEjercicioField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> {
-			KeyEventConsumers.consumeNonDigits(e);
+		tiempoEjercicioField.addEventHandler(KeyEvent.KEY_PRESSED, (e) -> {
+			var text = tiempoEjercicioField.getText();
 
-			if (tiempoEjercicioField.getText().isEmpty() && e.getCharacter().charAt(0) == '0') {
+			boolean isZeroForward = text.isEmpty() && e.getText().equals("0");
+			boolean isZeroBackward = text.length() == 2 && text.charAt(0) == '0' && e.getCode() == KeyCode.BACK_SPACE;
+
+			if (isZeroForward || isZeroBackward) {
 				intensidadChoiceBox.setValue(null);
 				intensidadChoiceBox.setDisable(true);
 			} else {
 				intensidadChoiceBox.setDisable(false);
 			}
+		});
+
+		tiempoEjercicioField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> {
+			KeyEventConsumers.consumeNonDigits(e);
 		});
 
 		pesoField.addEventHandler(KeyEvent.KEY_TYPED, (e) -> KeyEventConsumers.consumeNonDigits(e));
