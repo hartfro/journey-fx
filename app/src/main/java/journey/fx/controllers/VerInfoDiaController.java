@@ -128,7 +128,6 @@ public class VerInfoDiaController {
             calRecomLabel.setText("No hay suficiente información.");
         }
 
-        // TODO: calcular de acuerdo a infoDia.
         factorActividadLabel.setText("" + paciente.descripcionFactorActividad());
     }
 
