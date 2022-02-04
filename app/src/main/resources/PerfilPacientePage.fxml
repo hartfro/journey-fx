@@ -62,153 +62,157 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
       </StackPane>
-      <GridPane prefHeight="290.0" prefWidth="642.0" VBox.vgrow="ALWAYS">
+      <GridPane hgap="2.0" prefHeight="290.0" prefWidth="642.0" vgap="2.0" VBox.vgrow="ALWAYS">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.5" minWidth="10.0" prefWidth="301.5" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.0" minWidth="10.0" prefWidth="307.5" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" valignment="TOP" />
+            <RowConstraints minHeight="10.0" percentHeight="6.25" prefHeight="30.0" valignment="TOP" />
         </rowConstraints>
          <children>
             <Label alignment="CENTER" style="&#10;" text="Peso en kg (último registrado):" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="5">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="Nombre:" textAlignment="CENTER" wrapText="false">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="Fecha de nacimiento:" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="1">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="Edad:" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="2">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="Sexo:" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="3">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="Altura en cm (último registrado):" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="6">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="IMC:" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="8">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="Número de contacto:" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="9">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="Ocupación:" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="10">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="37.0" prefWidth="644.0" style="&#10;" text="Información de diagnóstico" textAlignment="CENTER" wrapText="false" GridPane.columnSpan="2" GridPane.rowIndex="12">
+            <Label alignment="CENTER" prefHeight="37.0" prefWidth="644.0" style="&#10;" text="Información de diagnóstico" textAlignment="CENTER" wrapText="false" GridPane.columnSpan="2" GridPane.rowIndex="11" GridPane.rowSpan="2">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="IMC:" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="13">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="Calorías diarias recomendadas:" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="14">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" style="&#10;" text="Factor de actividad:" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="15">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label fx:id="nombreLabel" text="[nombre paciente]" GridPane.columnIndex="1">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="fechaNacimientoLabel" text="[fecha nacimiento]" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="edadLabel" text="[edad paciente]" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="sexoLabel" text="[sexo paciente]" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="pesoLabel" text="[peso paciente]" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="alturaLabel" text="[altura paciente]" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="imcLabel" text="[imc]" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="numeroContactoLabel" text="[numero contacto]" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="ocupacionLabel" text="[ocupacion]" GridPane.columnIndex="1" GridPane.rowIndex="10">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="diagnosticoIMCLabel" text="[diag imc]" GridPane.columnIndex="1" GridPane.rowIndex="13">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <Label fx:id="caloriasRecomLabel" text="[calorias recom]" GridPane.columnIndex="1" GridPane.rowIndex="14">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="factorActividadLabel" text="[factor actividad]" GridPane.columnIndex="1" GridPane.rowIndex="15">
+            <Label fx:id="factorActividadLabel" alignment="CENTER" text="[diag factor]" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="15" GridPane.rowSpan="2">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
          </children>

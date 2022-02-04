@@ -169,22 +169,22 @@ public class Paciente {
      */
     public String descripcionFactorActividad() {
         if (this.infoDiaria.size() < MINIMO_ENTRADAS_CALCULO_EJERCICIO) {
-            return "No hay suficientes datos registrados para calcular el factor de actividad todavía. Se establece en el mínimo: 1.2.";
+            return "No hay suficientes registros. Se establece el mínimo: 1.2.";
         } else {
             if (calcularFactorActividad() == 1.2) {
-                return "Tu número de factor de actividad 1.2 indica que haces poco o ningún ejercicio.";
+                return "1.2: haces poco o ningún ejercicio.";
             }
 
             if (calcularFactorActividad() == 1.375) {
-                return "Tu número de factor de actividad 1.375 indica que haces ejercicio ligero (1-3 días a la semana).";
+                return "1.375: haces ejercicio ligero (1-3 días a la semana).";
             }
 
             if (calcularFactorActividad() == 1.55) {
-                return "Tu número de factor de actividad 1.55 indica que haces ejercicio moderado (3-5 días a la semana).";
+                return "1.55: haces ejercicio moderado (3-5 días a la semana).";
             }
 
             else
-                return "Tu número de factor de actividad 1.725 indica que haces ejercicio fuerte (6-7 días a la semana).";
+                return "1.725: haces ejercicio fuerte (6-7 días a la semana).";
         }
     }
 
