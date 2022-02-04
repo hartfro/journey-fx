@@ -4,19 +4,46 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Esta clase contiene el estado del sistema, maneja el login y la conexión entre capa de negocio e interfaz gráfica
+ * @author Grupo 23
+ * @version 31/01/2022
+ */
 public class Estado {
+
+    /**
+     * ArrayList para el banco de alimentos
+     */
     private ArrayList<Alimento> bancoAlimentos = new ArrayList<>();
+    /**
+     * HashMap para los pacientes
+     */
     private HashMap<String, Paciente> pacientes = new HashMap<>();
+    /**
+     * Funciona para saber si hay un paciente (usuario) loggeado
+     */
     private Paciente loggedInPaciente = null;
 
+    /**
+     * Método para devolver el banco de alimentos
+     * @return bancoAlimentos
+     */
     public ArrayList<Alimento> getBancoAlimentos() {
         return bancoAlimentos;
     }
 
+    /**
+     * Método para devolver los pacientes
+     * @return pacientes
+     */
     public HashMap<String, Paciente> getPacientes() {
         return pacientes;
     }
 
+    /**
+     * Método para devolver el estado del sistema
+     * @return loggedInPaciente
+     */
     public Paciente getLoggedInPaciente() {
         return loggedInPaciente;
     }
@@ -32,6 +59,11 @@ public class Estado {
             this.testSetup();
     }
 
+    /**
+     * Método que permite registra a un usuario
+     * @param paciente
+     * @throws Exception
+     */
     public void registerUser(Paciente paciente) throws Exception {
         if (this.pacientes.containsKey(paciente.getUsername())) {
             throw new Exception("Nombre de usuario ya ocupado.");
@@ -40,6 +72,12 @@ public class Estado {
         this.pacientes.put(paciente.getUsername(), paciente);
     }
 
+    /**
+     * Método que loggea a un usuario
+     * @param username
+     * @param password
+     * @return user
+     */
     public Paciente login(String username, String password) {
         Paciente user = pacientes.get(username);
 
@@ -52,16 +90,25 @@ public class Estado {
         return user;
     }
 
+    /**
+     * Método que cierra sesión del usuario
+     */
     public void logout() {
         this.loggedInPaciente = null;
     }
 
+    /**
+     * Método para quemar datos de alimentos
+     */
     public void setup() {
         this.bancoAlimentos.add(new Alimento("Pan", 265, TipoAlimento.CEREAL));
         this.bancoAlimentos.add(new Alimento("Huevo", 155, TipoAlimento.PROTEINA));
         this.bancoAlimentos.add(new Alimento("Agua", 0, TipoAlimento.LIQUIDO));
     }
 
+    /**
+     * Método para quemar datos de pacientes
+     */
     public void testSetup() {
         Paciente testPaciente = new Paciente("admin", "admin", "Anthony", "Suárez", LocalDate.parse("2003-12-20"),
                 Sexo.MASCULINO, "0923475926", "Estudiante");
