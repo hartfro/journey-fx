@@ -151,8 +151,8 @@
                         <Label fx:id="tiempoEjercicioLabel" text="[tiempo ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label fx:id="intensidadEjercicioLabel" text="[intensidad ejercicio]" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label fx:id="caloriasTotalesLabel" text="[calorias totales]" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                        <Label text="Peso:" />
-                        <Label text="Altura:" GridPane.rowIndex="1" />
+                        <Label text="Peso en kg:" />
+                        <Label text="Altura en cm:" GridPane.rowIndex="1" />
                         <Label fx:id="pesoLabel" text="[peso]" GridPane.columnIndex="1" />
                         <Label fx:id="alturaLabel" text="[altura]" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
