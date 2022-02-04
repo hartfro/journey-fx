@@ -96,12 +96,12 @@
             </Label>
             <TextField fx:id="tiempoEjercicioField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ChoiceBox fx:id="intensidadChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Ingrese su peso">
+            <Label text="Ingrese su peso en kg">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="Ingrese su altura" GridPane.rowIndex="1">
+            <Label text="Ingrese su altura en cm" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
                </font>

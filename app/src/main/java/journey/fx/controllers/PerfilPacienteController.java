@@ -87,6 +87,6 @@ public class PerfilPacienteController {
             caloriasRecomLabel.setText("No hay suficiente información.");
         }
 
-        factorActividadLabel.setText(Float.toString(paciente.calcularFactorActividad()));
+        factorActividadLabel.setText(paciente.descripcionFactorActividad());
     }
 }

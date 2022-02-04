@@ -86,7 +86,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" style="&#10;" text="Peso (último registrado):" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="5">
+            <Label alignment="CENTER" style="&#10;" text="Peso en kg (último registrado):" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="5">
                <font>
                   <Font size="18.0" />
                </font>
@@ -111,7 +111,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" style="&#10;" text="Altura (último registrado):" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="6">
+            <Label alignment="CENTER" style="&#10;" text="Altura en cm (último registrado):" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="6">
                <font>
                   <Font size="18.0" />
                </font>
@@ -146,7 +146,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" style="&#10;" text="Factor de actividad:" textAlignment="CENTER" wrapText="false" GridPane.rowIndex="15">
+            <Label alignment="CENTER" style="&#10;" text="Factor de actividad:" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="15">
                <font>
                   <Font size="18.0" />
                </font>

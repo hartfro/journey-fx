@@ -129,7 +129,7 @@ public class VerInfoDiaController {
         }
 
         // TODO: calcular de acuerdo a infoDia.
-        factorActividadLabel.setText("" + paciente.calcularFactorActividad());
+        factorActividadLabel.setText("" + paciente.descripcionFactorActividad());
     }
 
     private void populateComidaAccordion(Accordion comidaAccordion, HashMap<Alimento, Integer> comida) {
