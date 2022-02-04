@@ -14,7 +14,20 @@ import journey.core.InfoDia;
 import journey.core.Estado;
 import journey.fx.controllers.VerInfoDiaController;
 
+/**
+ * Esta clase permite mostrar los componentes gráficos de la página de ver info día
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class VerInfoDiaPage {
+    /**
+     * Método que pone en escena la página de ver info día
+     * @param stage
+     * @param journey
+     * @param infoDia
+     * @return scene
+     * @throws IOException
+     */
     public static Scene scene(Stage stage, Estado journey, InfoDia infoDia) throws IOException {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);

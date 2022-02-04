@@ -19,6 +19,11 @@ import journey.core.Estado;
 import journey.core.Paciente;
 import journey.fx.scenes.SeleccionarInfoDiaPage;
 
+/**
+ * Esta clase permite reconocer la interacción del usuario y ver la información de un día
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class VerInfoDiaController {
     @FXML
     Button regresarBtn;
@@ -71,7 +76,12 @@ public class VerInfoDiaController {
     @FXML
     Label factorActividadLabel;
 
-    // TODO: pasar fecha en vez de infoDia.
+    /**
+     * Método para mostrar la información de un día en específico del paciente que se encuentre en sesión
+     * @param stage
+     * @param journey
+     * @param fechaInfoDia
+     */
     public void initData(Stage stage, Estado journey, LocalDate fechaInfoDia) {
         Paciente paciente = journey.getLoggedInPaciente();
         var infoDia = paciente.buscarInfoDiaPorFecha(fechaInfoDia);
@@ -131,6 +141,11 @@ public class VerInfoDiaController {
         factorActividadLabel.setText("" + paciente.descripcionFactorActividad());
     }
 
+    /**
+     * Método para mostrar los alimentos consumidos en un acordión
+     * @param comidaAccordion
+     * @param comida
+     */
     private void populateComidaAccordion(Accordion comidaAccordion, HashMap<Alimento, Integer> comida) {
         for (var alimento : comida.keySet()) {
             var porciones = comida.get(alimento);

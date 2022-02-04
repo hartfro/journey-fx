@@ -18,6 +18,11 @@ import journey.core.Paciente;
 import journey.fx.scenes.LoggedInMenu;
 import journey.fx.scenes.VerInfoDiaPage;
 
+/**
+ * Esta clase permite reconocer la interacción del usuario y seleccionar un día
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class SeleccionarInfoDiaController {
     @FXML
     ListView<InfoDia> infoDiariaListView;
@@ -32,6 +37,11 @@ public class SeleccionarInfoDiaController {
     Button regresarBtn;
 
 
+    /**
+     * Método que resetea qué días con información son visibles
+     * @param items
+     * @param paciente
+     */
     private void resetInfoDiariaItems(ObservableList<InfoDia> items, Paciente paciente) {
         items.clear();
 
@@ -42,6 +52,11 @@ public class SeleccionarInfoDiaController {
         infoDiariaListView.refresh();
     }
 
+    /**
+     * Método que permite seleccionar el día del que se quiere ver la información
+     * @param stage
+     * @param journey
+     */
     public void initData(Stage stage, Estado journey) {
         regresarBtn.setOnAction((event) -> {
             stage.setScene(LoggedInMenu.scene(stage, journey));

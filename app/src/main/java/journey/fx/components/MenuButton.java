@@ -3,7 +3,16 @@ package journey.fx.components;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 
+/**
+ * Esta clase sirve para manejar el botón del menú
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class MenuButton extends Button {
+    /**
+     * Método que permite manejar el botón del menú
+     * @param text
+     */
     public MenuButton(String text) {
         super(text);
 

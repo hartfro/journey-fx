@@ -13,7 +13,19 @@ import jfxtras.styles.jmetro.Style;
 import journey.core.Estado;
 import journey.fx.controllers.PerfilPacienteController;
 
+/**
+ * Esta clase permite mostrar los componentes gráficos del perfil del paciente
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class PerfilPacientePage {
+    /**
+     * Método que pone en escena los componentes del perfil del paciente
+     * @param stage
+     * @param journey
+     * @return scene
+     * @throws IOException
+     */
     public static Scene scene(Stage stage, Estado journey) throws IOException {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);

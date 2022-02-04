@@ -21,7 +21,18 @@ import journey.fx.utils.KeyEventConsumers;
 
 import javafx.util.Callback;
 
+/**
+ * Esta clase permite mostrar los componentes gráficos de la página de registro
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class RegisterPage {
+    /**
+     * Método que pone en escena los componentes de registro
+     * @param stage
+     * @param journey
+     * @return formVBox
+     */
     private static Node registerForm(Stage stage, Estado journey) {
         VBox formVBox = new VBox(20);
 
@@ -194,6 +205,12 @@ public class RegisterPage {
         return formVBox;
     }
 
+    /**
+     * Método que crear la escena de registro
+     * @param stage
+     * @param journey
+     * @return scene
+     */
     public static Scene create(Stage stage, Estado journey) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);

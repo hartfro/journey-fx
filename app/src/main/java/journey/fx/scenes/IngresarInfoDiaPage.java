@@ -13,7 +13,19 @@ import jfxtras.styles.jmetro.Style;
 import journey.core.Estado;
 import journey.fx.controllers.IngresarInfoDiaController;
 
+/**
+ * Esta clase mostrar los componentes gráficos de ingresar info diaria
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class IngresarInfoDiaPage {
+    /**
+     * Método que pone en escena los componentes de ingresar info día
+     * @param stage
+     * @param journey
+     * @return scene
+     * @throws IOException
+     */
     public static Scene scene(Stage stage, Estado journey) throws IOException {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);

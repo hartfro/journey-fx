@@ -25,6 +25,11 @@ import journey.fx.scenes.IngresarInfoDiaPage;
 import journey.fx.scenes.LoggedInMenu;
 import journey.fx.utils.KeyEventConsumers;
 
+/**
+ * Esta clase permite reconocer la interacción del usuario e ingresar la información diaria de comida
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class IngresarInfoDiaComidaController {
     @FXML
     Label nombreComidaLabel;
@@ -43,6 +48,9 @@ public class IngresarInfoDiaComidaController {
         continueBtn.setDefaultButton(true);
     }
 
+    /**
+     * Para el manejo de datos ingresados
+     */
     public static class Data extends IngresarInfoDiaController.Data {
         HashMap<Alimento, Integer> desayuno = new HashMap<>();
         HashMap<Alimento, Integer> almuerzo = new HashMap<>();
@@ -53,6 +61,13 @@ public class IngresarInfoDiaComidaController {
         }
     }
 
+    /**
+     * Método que permite conservar la info recolectada de la anterior pantalla
+     * @param stage
+     * @param journey
+     * @param oldData
+     * @param comidaIndex
+     */
     public void initData(Stage stage, Estado journey, IngresarInfoDiaController.Data oldData, int comidaIndex) {
         IngresarInfoDiaComidaController.Data data = new IngresarInfoDiaComidaController.Data(oldData.peso, oldData.altura, oldData.emocion, oldData.intensidadEjercicio, oldData.tiempoEjercicio);
 
@@ -61,6 +76,14 @@ public class IngresarInfoDiaComidaController {
         this.initData(stage, journey, data, porcionFields, comidaIndex);
     }
 
+    /**
+     * Método para iniciar el ingreso de datos de alimentación
+     * @param stage
+     * @param journey
+     * @param data
+     * @param porcionFields
+     * @param comidaIndex
+     */
     public void initData(Stage stage, Estado journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) {
         regresarBtn.setOnAction((event) -> {
             try {
@@ -133,6 +156,12 @@ public class IngresarInfoDiaComidaController {
         });
     }
 
+    /**
+     * Método para que aparezcan los alimentos y su porción
+     * @param alimento
+     * @param fields
+     * @return
+     */
     private Node alimentoHBox(Alimento alimento, HashMap<Alimento, TextField> fields) {
         HBox hBox = new HBox();
         hBox.setSpacing(10);
@@ -152,6 +181,16 @@ public class IngresarInfoDiaComidaController {
         return hBox;
     }
 
+    /**
+     * Método para pasar de página sin perder información
+     * @param stage
+     * @param journey
+     * @param data
+     * @param porcionFields
+     * @param comidaIndex
+     * @return
+     * @throws IOException
+     */
     private Scene getNextPage(Stage stage, Estado journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) throws IOException {
         Scene nextPage = null;
 

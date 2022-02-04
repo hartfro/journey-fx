@@ -8,6 +8,11 @@ import journey.core.Constantes;
 import journey.core.Estado;
 import journey.fx.scenes.LoggedInMenu;
 
+/**
+ * Esta clase permite reconocer la interacción del usuario y ver la información de su perfil
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class PerfilPacienteController {
     @FXML
     Label nombreLabel;
@@ -48,6 +53,11 @@ public class PerfilPacienteController {
     @FXML
     Button regresarBtn;
 
+    /**
+     * Método que permite ver la información del perfil del paciente (usuario) en sesión
+     * @param stage
+     * @param journey
+     */
     public void initData(Stage stage, Estado journey) {
         // regresarBtn
         regresarBtn.setOnAction((e) -> {
@@ -58,7 +68,6 @@ public class PerfilPacienteController {
         var paciente = journey.getLoggedInPaciente();
         var ultimoInfoDia = paciente.getInfoDiaMasReciente();
 
-        // TODO: show custom text if ultimoInfoDia doesn't exist.
         nombreLabel.setText(paciente.nombreCompleto());
         fechaNacimientoLabel.setText(paciente.getFechaNacimiento().format(Constantes.DATE_FORMATTER));
         edadLabel.setText(Integer.toString(paciente.calcularEdad()));

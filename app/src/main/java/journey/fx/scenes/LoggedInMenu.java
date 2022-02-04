@@ -20,7 +20,20 @@ import journey.core.Estado;
 import journey.fx.Utils;
 import journey.fx.components.MenuButton;
 
+/**
+ * Esta clase permite mostrar los componentes gráficos del menú después de iniciar sesión
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class LoggedInMenu {
+
+    /**
+     * Método que contiene los nodos de las opciones del menú
+     * @param stage
+     * @param journey
+     * @param contextLabel
+     * @return menuHBox
+     */
     private static Node menu(Stage stage, Estado journey, Label contextLabel) {
         HBox menuHBox = new HBox(20);
         menuHBox.setAlignment(Pos.CENTER);
@@ -77,10 +90,23 @@ public class LoggedInMenu {
         return menuHBox;
     }
 
+    /**
+     * Método que muestra el mensaje de bienvenida al usuario
+     * @param stage
+     * @param journey
+     * @return scene
+     */
     public static Scene scene(Stage stage, Estado journey) {
         return scene(stage, journey, "¡Bienvenido/a!");
     }
 
+    /**
+     * Método que pone en escena la página con el menú
+     * @param stage
+     * @param journey
+     * @param contextMsg
+     * @return scene
+     */
     public static Scene scene(Stage stage, Estado journey, String contextMsg) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);

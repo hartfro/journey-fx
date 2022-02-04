@@ -16,6 +16,11 @@ import journey.fx.scenes.IngresarInfoDiaComidaPage;
 import journey.fx.scenes.LoggedInMenu;
 import journey.fx.utils.KeyEventConsumers;
 
+/**
+ * Esta clase permite reconocer la interacción del usuario e ingresar información del día (excepto comida)
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class IngresarInfoDiaController {
 	@FXML
 	TextField pesoField;
@@ -75,6 +80,9 @@ public class IngresarInfoDiaController {
 		continueBtn.setDefaultButton(true);
 	}
 
+	/**
+	 * Para el manejo de datos del ingreso
+	 */
 	public static class Data {
 		float peso;
 		int altura;
@@ -91,6 +99,11 @@ public class IngresarInfoDiaController {
 		}
 	}
 
+	/**
+	 * Método que permite iniciar el ingreso de datos
+	 * @param stage
+	 * @param journey
+	 */
 	public void initData(Stage stage, Estado journey) {
 		regresarBtn.setOnAction((event) -> {
 			stage.setScene(LoggedInMenu.scene(stage, journey));

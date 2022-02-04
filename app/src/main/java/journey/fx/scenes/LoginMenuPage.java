@@ -19,7 +19,18 @@ import journey.core.Estado;
 import journey.fx.components.ControlWithLabel;
 import journey.fx.utils.KeyEventConsumers;
 
+/**
+ * Esta clase permite mostrar los componentes gráficos de la página para iniciar sesión
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class LoginMenuPage {
+    /**
+     * Método que pone en escena los componentes de iniciar sesión
+     * @param stage
+     * @param journey
+     * @return scene
+     */
     public static Scene scene(Stage stage, Estado journey) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);

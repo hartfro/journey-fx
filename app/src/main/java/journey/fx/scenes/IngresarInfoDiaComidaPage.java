@@ -17,7 +17,22 @@ import journey.core.Estado;
 import journey.fx.controllers.IngresarInfoDiaComidaController;
 import journey.fx.controllers.IngresarInfoDiaController;
 
+/**
+ * Esta clase permite mostrar los componentes gráficos de ingresar info de comida
+ * @author Grupo 23
+ * @version 02/01/2022
+ */
 public class IngresarInfoDiaComidaPage {
+    /**
+     * Método que pone en escena la página del ingreso de información sobre alimentos, con porciones que selecciona el usuario
+     * @param stage
+     * @param journey
+     * @param data
+     * @param porcionFields
+     * @param comidaIndex
+     * @return _scene
+     * @throws IOException
+     */
     public static Scene scene(Stage stage, Estado journey, IngresarInfoDiaComidaController.Data data, HashMap<Alimento, TextField> porcionFields, int comidaIndex) throws IOException {
         var pageLoader = new FXMLLoader(ClassLoader.getSystemResource("IngresarInfoDiaComidaPage.fxml"));
 
@@ -28,6 +43,15 @@ public class IngresarInfoDiaComidaPage {
         return _scene(stage, page);
     }
 
+    /**
+     * Método que que pone en escena la página del ingreso de información sobre alimentos
+     * @param stage
+     * @param journey
+     * @param data
+     * @param comidaIndex
+     * @return _scene
+     * @throws IOException
+     */
     public static Scene scene(Stage stage, Estado journey, IngresarInfoDiaController.Data data, int comidaIndex) throws IOException {
         var pageLoader = new FXMLLoader(ClassLoader.getSystemResource("IngresarInfoDiaComidaPage.fxml"));
 
@@ -38,6 +62,12 @@ public class IngresarInfoDiaComidaPage {
         return _scene(stage, page);
     }
 
+    /**
+     * Método que pone en escena la página de ingreso de info de alimentos, tomando en cuenta los nodos y el paso entre escenas
+     * @param stage
+     * @param page
+     * @return scene
+     */
     private static Scene _scene(Stage stage, Node page) {
         StackPane root = new StackPane();
         root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
