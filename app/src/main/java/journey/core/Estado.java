@@ -66,7 +66,7 @@ public class Estado {
         Paciente testPaciente = new Paciente("admin", "admin", "Anthony", "Suárez", LocalDate.parse("2003-12-20"),
                 Sexo.MASCULINO, "0923475926", "Estudiante");
 
-        InfoAlimentacion testAlimentacion = new InfoAlimentacion();
+        InfoAlimentacion testAlimentacion = new InfoAlimentacion(new HashMap<>(), new HashMap<>(), new HashMap<>());
         testAlimentacion.agregarADesayuno(bancoAlimentos.get(0), 10);
         testAlimentacion.agregarADesayuno(bancoAlimentos.get(1), 5);
         testAlimentacion.agregarADesayuno(bancoAlimentos.get(2), 7);
@@ -87,7 +87,7 @@ public class Estado {
         Paciente paciente2 = new Paciente("juan", "juan", "Juan", "Cevallos", LocalDate.parse("2002-11-22"),
                 Sexo.MASCULINO, "0987044325", "Empleado");
 
-        InfoAlimentacion alimentacion2 = new InfoAlimentacion();
+        InfoAlimentacion alimentacion2 = new InfoAlimentacion(new HashMap<>(), new HashMap<>(), new HashMap<>());
         alimentacion2.agregarADesayuno(bancoAlimentos.get(0), 7);
         alimentacion2.agregarADesayuno(bancoAlimentos.get(1), 4);
         alimentacion2.agregarADesayuno(bancoAlimentos.get(2), 5);
@@ -108,7 +108,7 @@ public class Estado {
         Paciente paciente3 = new Paciente("marco", "marco", "Marco", "Rojas", LocalDate.of(2003, 10, 4), Sexo.MASCULINO,
                 "0983028493", "Estudiante");
 
-        InfoAlimentacion alimentacion3 = new InfoAlimentacion();
+        InfoAlimentacion alimentacion3 = new InfoAlimentacion(new HashMap<>(), new HashMap<>(), new HashMap<>());
         alimentacion3.agregarADesayuno(bancoAlimentos.get(0), 5);
         alimentacion3.agregarADesayuno(bancoAlimentos.get(1), 4);
         alimentacion3.agregarADesayuno(bancoAlimentos.get(2), 3);
