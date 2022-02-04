@@ -35,7 +35,7 @@ public class SeleccionarInfoDiaController {
     private void resetInfoDiariaItems(ObservableList<InfoDia> items, Paciente paciente) {
         items.clear();
 
-        for (var infoDia : paciente.infoDiaria) {
+        for (var infoDia : paciente.getInfoDiaria()) {
             items.add(infoDia);
         }
 

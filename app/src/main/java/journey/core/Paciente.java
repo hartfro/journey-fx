@@ -59,7 +59,7 @@ public class Paciente {
     /**
      * Sorted set de InfoDia, permite iterar sobre los elementos de información diaria ingresada en un orden natural
      */
-    public SortedSet<InfoDia> infoDiaria = new TreeSet<>(Comparator.comparing(InfoDia::getFecha));
+    private SortedSet<InfoDia> infoDiaria = new TreeSet<>(Comparator.comparing(InfoDia::getFecha));
 
     /**
      * Constructor para Paciente
@@ -414,5 +414,9 @@ public class Paciente {
      */
     public void setOcupacion(String ocupacion) {
         this.ocupacion = ocupacion;
+    }
+
+    public SortedSet<InfoDia> getInfoDiaria() {
+        return this.infoDiaria;
     }
 }
