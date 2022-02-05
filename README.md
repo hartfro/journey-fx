@@ -12,6 +12,8 @@ Con esta información, el programa genera una evaluación diaria (diagnóstico y
 3. Dar clic en Next si aparece la pantalla de bienvenida.
 4. En Project Root Directory, seleccionar la carpeta que contiene el código.
 5. Dar clic en Finish.
-6. En Gradle Tasks, abrir journey-fx > app > application.
-7. Dar doble clic en la tarea `run`.
+6. En Gradle Tasks (puede aparecer como un ícono de un elefantito azul en la
+   parte derecha o inferior de la ventana), abrir journey-fx > app >
+   application.
+7. Ejecutar (doble clic) la tarea `run`.
 
