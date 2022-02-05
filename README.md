@@ -3,7 +3,7 @@
 Journey permite llevar un registro diario de salud, tomando en cuenta hábitos alimenticios y de actividad física. 
 Con esta información, el programa genera una evaluación diaria (diagnóstico y recomendaciones).
 
-## Cómo compilar
+## Cómo ejecutar/compilar
 
 ### En Eclipse
 
