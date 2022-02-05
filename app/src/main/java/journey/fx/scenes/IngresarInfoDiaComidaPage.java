@@ -18,16 +18,19 @@ import journey.fx.controllers.IngresarInfoDiaComidaController;
 import journey.fx.controllers.IngresarInfoDiaController;
 
 /**
- * Esta clase permite mostrar los componentes gráficos de ingresar info de comida
+ * Contiene el méotodo scene que devuelve la escena de ingresar info de comida (desayuno, almuerzo o merienda).
  * @author Grupo 23
  * @version 02/01/2022
  */
 public class IngresarInfoDiaComidaPage {
     /**
-     * Método que pone en escena la página del ingreso de información sobre alimentos, con porciones que selecciona el usuario
+     * Método que devuelva la escena de la página del ingreso de información sobre comida: alimentos, con sus respectivas porciones. 
+     *
+     * Este utiliza la información de una pantalla {@link IngresarInfoDiaComidaPage} anterior.
+     *
      * @param stage
      * @param journey
-     * @param data
+     * @param data Información de la pantalla {@link IngresarInfoDiaComidaPage} anterior.
      * @param porcionFields
      * @param comidaIndex
      * @return _scene
@@ -44,10 +47,13 @@ public class IngresarInfoDiaComidaPage {
     }
 
     /**
-     * Método que que pone en escena la página del ingreso de información sobre alimentos
+     * Método que devuelva la escena de la página del ingreso de información sobre comida: alimentos, con sus respectivas porciones. 
+     *
+     * Este utiliza la información procedente de la pantalla {@link IngresarInfoDiaPage}, mas no de una {@link IngresarInfoDiaComidaPage}.
+     *
      * @param stage
      * @param journey
-     * @param data
+     * @param data Ingormación de la pantalla {@link IngresarInfoDiaPage}.
      * @param comidaIndex
      * @return _scene
      * @throws IOException
@@ -63,7 +69,8 @@ public class IngresarInfoDiaComidaPage {
     }
 
     /**
-     * Método que pone en escena la página de ingreso de info de alimentos, tomando en cuenta los nodos y el paso entre escenas
+     * Devuelve la escena con el estilo jMetro añadido.
+     *
      * @param stage
      * @param page
      * @return scene
